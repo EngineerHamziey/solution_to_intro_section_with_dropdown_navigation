@@ -1,383 +1,408 @@
+/* take care of people who disable JS */
+/* line 3, ../sass/style.scss */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
 
+/* line 9, ../sass/style.scss */
 :root {
   --Almost-White: hsl(0, 0%, 98%);
   /* --Almost-White: hsl(0, 0%, 8%); */
   --Medium-Gray: hsl(0, 0%, 41%);
   --Almost-Black: hsl(0, 0%, 8%);
   /* --Almost-Black: hsl(0, 0%, 98%); */
-  --my-parag-size: 1.125rem; /*i.e 18px*/
-}
+  --my-parag-size: 1.125rem;
+  /*i.e 18px*/ }
 
-
+/* line 19, ../sass/style.scss */
 body {
   font-family: sans-serif;
   line-height: 1.5;
   background: var(--Almost-White);
-  color: var(--Almost-Black);
-  /* min-height: 100vh; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* position: relative; */
-}
+  color: var(--Almost-Black); }
+  /* line 26, ../sass/style.scss */
+  body .visually-hidden {
+    font-size: 0; }
+  /* line 31, ../sass/style.scss */
+  body p {
+    font-size: var(--my-parag-size); }
+  /* line 35, ../sass/style.scss */
+  body a {
+    text-decoration: none; }
+  /* line 39, ../sass/style.scss */
+  body .all-btn-links {
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    /*display: none;*/ }
+    /* line 43, ../sass/style.scss */
+    body .all-btn-links img {
+      pointer-events: none; }
+  /* line 48, ../sass/style.scss */
+  body .each-link.open .arrow-down {
+    content: url(../images/icon-arrow-up.svg); }
+  /* line 52, ../sass/style.scss */
+  body .company-menu li a:focus-visible,
+  body .features-menu li a:focus-visible,
+  body .all-btn-links:focus-visible {
+    outline: 0.1rem dotted var(--Almost-Black);
+    border-radius: 0.3rem; }
+  /* line 59, ../sass/style.scss */
+  body .all-btn-links:hover {
+    border-color: var(--Almost-Black); }
 
 /* nav, main, footer {
   max-width: 1440px;
 } */
-
-p {
-  font-size: var(--my-parag-size);
-}
-
-a {
-  text-decoration: none;
-}
-/* utilities */
-/* .general-padding {
-  padding-top: 0 0.5rem;
-} */
-
-.all-btn-links {
-  transition: all 0.3s ease-in;
-}
-
-.btn-skip,
-.all-btn-links:focus-visible {
-  outline: 0.1rem dotted var(--Almost-Black); 
-  border-radius: 0.3rem;
-}
-
-.all-btn-links:hover {
-  border-color:  var(--Almost-Black); 
-}
-/* utilities end */
-
+/* line 69, ../sass/style.scss */
 .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   /* background: red; */
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   /* justify-content: center; */
   padding: 0.5rem 1rem;
-}
-
-.btn-skip {
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
-  background: #f4f4f4;
-  padding: 0.3rem 1rem;
-  border-radius: 20%;
-  height: 2.75rem;
-  font-size: 1.4rem;
-  transition: all 0.5s ease;
-  opacity: 0;
-  transform: translate(2rem,-10rem);
-}
-
-.btn-skip:focus-visible {
-  transform: translate(0, 0);
-  opacity: 1;
-}
-
-/* making the svg(snap) anime */
-.snap-svg {
-  /* this height and margin wont make the nav jump when the btn is given position: fixed */
-  min-height: 2.75rem;
-  margin: auto;
-  /* applying the fill globally to all */
-  fill: transparent;
-  animation: fill-color 4s ease forwards;
-}
-
-.logo-path {
-  stroke: var(--Almost-Black);
-  animation-name: svg-animation;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease;
-  /* the animation duration and delay will be set in my JS */
-}
-/* animating the stroke */
-@keyframes svg-animation {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes fill-color {
-      
-  to {
-    fill: var(--Almost-Black);
-  }
-}
-
-/* the nav btn and hamburger */
-.nav-btn {
-  display: inline-block;
-  margin: auto 0 auto auto;
-  /* recommended by wcag is 44 x 44px equivalent to 2.75rem*/
-  width: 2.75rem;
-  height: 2.75rem;
-  background-color: transparent;
-  border-radius: 0.2rem;
-  border: none;
-  z-index: 2;
-  transition: all 0.5s ease;
-}
-
-.hamburger {
-  display: block;
-  width: 2rem;
-  height: 0.15rem;
-  background: var(--Almost-Black);
-  border-radius: 0.1rem;
-  transition: all 0.5s ease-in-out;
-  pointer-events: none;
-  /* put em all at the center of the button */
-  margin: auto;
-}
-
-.hamburger:nth-child(2) {
-  margin: 0.3rem auto;
-}
-
-.nav-links {
-  /* display: none; */
-  list-style: none;
-  /* padding-top: 4rem; */
-  /* height: max(40rem, 100vh); */
-  min-height: 100vh;
-  min-width: 60%;
-  background: var(--Almost-White);
-  position: fixed;
-  /* position: absolute; */
-  right: 0;
-  top:0;
-  transition: all 0.6s ease;
-  /* background: red; */
-  clip-path: polygon(100% 100%, 100% 0, 100% 0, 100% 100%);
-  -webkit-clip-path: polygon(100% 100%, 100% 0, 100% 0, 100% 100%);
-  pointer-events: none;
-}
-
-.each-link a {
-  transition: all 1s ease 0.1s; 
-  color: var(--Almost-Black);
-  transform: translate(60vw) rotate(-100deg) scale(4);
-}
-
-.each-link .all-btn-links {
-  /* display:  */
-  display: inline-block;
-  color: var(--Medium-Gray);
-  border-color: var(--Medium-Gray);
-  margin: 1rem auto auto 1rem;
-}
-.each-link .all-btn-links:hover {
-  color: var(--Almost-Black);
-  /* display: none; */
-}
-
-
-.each-link .register-btn,
-.each-link .log-in-btn {
-  /* inherited from .learn-more:hover*/
-  width: calc(100% - 2rem);
-  text-align: center;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  /* font-weight: bold; */
-  border: 0.1rem solid var(--Medium-Gray);
-  /* 2rems already subtracted from the width */
-  margin: 0 1rem;
-}
-
-.all-btn-links.log-in-btn {
-  border-color: transparent;
-  margin-top: 1rem;
-  margin-bottom: 0.3rem;
-}
-
-.register-btn:hover {
-  border-color: var(--Almost-Black);
-}
-
-.arrow-down {
-  display: inline-block;
-  margin-left: 0.6rem;
-}
-
-.company-menu,
-.features-menu {
-  list-style:none;
-  margin: 1.5rem 0 0.4rem 2rem;
-  color: var(--Medium-Gray);
-  /* background: red; */
-  /* opacity: 0; */
-  /* display: none; */
-  /* transform: translateY(-5rem); */
-}
-
-.company-menu.open,
-.features-menu.open {
-  display: block;
-  background: pink;
-  list-style:none;
-  margin: 1.5rem 0 0.4rem 2rem;
-  color: var(--Medium-Gray);
-  /* background: red; */
-  /* display: none; */
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.features-menu-li img {
-  display: inline-block;
-  margin-right: 0.5rem;
-}
-
-.company-menu-li,
-.features-menu-li {
-  margin-top: 1rem;
-}
-
-.company-menu {
-  margin-top: 1rem;
-}
-
-/* .all-btn-links.register-btn {
-  margin-top
-} */
-
-
-/* when the menu is Menu is opened */
-/* .nav.open-menu {
-  
-} */
-
-.open-menu .nav-btn {
-  background: var(--Almost-White);
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  transform: translate(0.1rem, 0.1rem);
-}
-
-.open-menu .nav-links {
-  padding: 4rem 0 1.5rem 0;
-  /* display: block; */
-  pointer-events: all;
-  clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
-  transform: rotate(0);
-  opacity: 1;
-  /* clip-path: none; */
-}
-
-.open-menu .each-link a {
-  transform: rotate(0);
-  transform: scale(1);
-}
-/* change the hamburger to X */
-.open-menu .hamburger:first-child {
-  transform: rotate(-100deg) translateY(-63px);
-  color: red;
-  opacity: 0;
-}
-.open-menu .hamburger:nth-child(2) {
-  transform: rotate(-45deg);
-}
-.open-menu .hamburger:nth-child(3) {
-  transform: rotate(45deg) translate(-0.4rem, -0.3rem);
-}
+  /* making the svg(snap) anime */
+  /* the nav btn and hamburger */
+  /* change the hamburger to X */ }
+  /* line 77, ../sass/style.scss */
+  .nav .btn-skip-to-main-content {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    background: #f4f4f4;
+    padding: 0.3rem 1rem;
+    border-radius: 20%;
+    height: 2.75rem;
+    font-size: 1.4rem;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-transform: translate(2rem, -10rem);
+            transform: translate(2rem, -10rem); }
+  /* line 92, ../sass/style.scss */
+  .nav .btn-skip-to-main-content:focus-visible {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+    color: var(--Almost-Black); }
+  /* line 97, ../sass/style.scss */
+  .nav .nav-logo {
+    min-height: 2.75rem;
+    padding: 0.8rem 0 0 0.5rem; }
+  /* line 104, ../sass/style.scss */
+  .nav .snap-svg {
+    /* this height and margin wont make the nav jump when the btn is given position: fixed */
+    /* margin: auto; */
+    /* applying the fill globally to all */
+    fill: transparent;
+    -webkit-animation: fill-color 4s ease forwards;
+            animation: fill-color 4s ease forwards; }
+  /* line 112, ../sass/style.scss */
+  .nav .logo-path {
+    stroke: var(--Almost-Black);
+    -webkit-animation-name: svg-animation;
+            animation-name: svg-animation;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-timing-function: ease;
+            animation-timing-function: ease;
+    /* the animation duration and delay will be set in my JS */ }
+  /* line 120, ../sass/style.scss */
+  .nav .nav-btn {
+    display: inline-block;
+    margin: auto 0 auto auto;
+    /* recommended by wcag is 44 x 44px equivalent to 2.75rem*/
+    width: 2.75rem;
+    height: 2.75rem;
+    background-color: transparent;
+    border-radius: 0.2rem;
+    border: none;
+    z-index: 2;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease; }
+  /* line 133, ../sass/style.scss */
+  .nav .hamburger {
+    display: block;
+    width: 2rem;
+    height: 0.15rem;
+    background: var(--Almost-Black);
+    border-radius: 0.1rem;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    pointer-events: none;
+    /* put em all at the center of the button */
+    margin: auto; }
+  /* line 145, ../sass/style.scss */
+  .nav .hamburger:nth-child(2) {
+    margin: 0.3rem auto; }
+  /* line 149, ../sass/style.scss */
+  .nav .nav-links {
+    /* display: none; */
+    list-style: none;
+    /* padding-top: 4rem; */
+    /* height: max(40rem, 100vh); */
+    min-height: 100vh;
+    min-width: 60%;
+    background: var(--Almost-White);
+    position: fixed;
+    /* position: absolute; */
+    right: 0;
+    top: 0;
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+    /* background: red; */
+    clip-path: polygon(100% 100%, 100% 0, 100% 0, 100% 100%);
+    -webkit-clip-path: polygon(100% 100%, 100% 0, 100% 0, 100% 100%);
+    pointer-events: none; }
+  /* line 168, ../sass/style.scss */
+  .nav .each-link button,
+  .nav .each-link a {
+    border: none;
+    background: var(--Almost-white);
+    -webkit-transition: all 1s ease 0.1s;
+    transition: all 1s ease 0.1s;
+    color: var(--Almost-Black);
+    -webkit-transform: translate(60vw) rotate(-100deg) scale(4);
+            transform: translate(60vw) rotate(-100deg) scale(4); }
+  /* line 177, ../sass/style.scss */
+  .nav .each-link .all-btn-links {
+    /* display:  */
+    display: inline-block;
+    color: var(--Medium-Gray);
+    border-color: var(--Medium-Gray);
+    margin: 0.2em auto auto 0.3rem;
+    padding: 0.5rem 1rem;
+    /* background: brown; */ }
+  /* line 187, ../sass/style.scss */
+  .nav .each-link .all-btn-links:hover {
+    color: var(--Almost-Black);
+    /* display: none; */ }
+  /* line 192, ../sass/style.scss */
+  .nav .each-link .register-btn,
+  .nav .each-link .log-in-btn {
+    /* inherited from .learn-more:hover*/
+    width: calc(100% - 2rem);
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    /* font-weight: bold; */
+    border: 0.1rem solid var(--Medium-Gray);
+    /* 2rems already subtracted from the width */
+    margin: 0 1rem; }
+  /* line 205, ../sass/style.scss */
+  .nav .all-btn-links.log-in-btn {
+    border-color: transparent;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem; }
+  /* line 211, ../sass/style.scss */
+  .nav .register-btn:hover {
+    border-color: var(--Almost-Black); }
+  /* line 215, ../sass/style.scss */
+  .nav .arrow-down {
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+    display: inline-block;
+    margin-left: 0.6rem; }
+  /* line 225, ../sass/style.scss */
+  .nav .company-menu,
+  .nav .features-menu {
+    display: none;
+    list-style: none;
+    margin: 1.5rem 0 0.4rem 2rem;
+    color: var(--Medium-Gray);
+    /* background: red; */
+    /* animation: 0.3s ease-in dropItem;  */
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    opacity: 0.3;
+    /* display: none; */
+    /* transform: translateY(-100rem); */ }
+  /* line 240, ../sass/style.scss */
+  .nav li.open ul.company-menu,
+  .nav li.open ul.features-menu {
+    background: var(--Almost-White);
+    display: block;
+    /* animation: 0.3s ease-in-out dropItem;  */
+    opacity: 1;
+    /* transform: translateY(0); */ }
+  /* line 249, ../sass/style.scss */
+  .nav .company-menu li a,
+  .nav .features-menu li a {
+    color: var(--Medium-Gray); }
+  /* line 254, ../sass/style.scss */
+  .nav .company-menu li a:hover,
+  .nav .features-menu li a:hover {
+    color: var(--Almost-Black); }
+  /* line 259, ../sass/style.scss */
+  .nav .features-menu-li img {
+    display: inline-block;
+    margin-right: 0.5rem; }
+  /* line 264, ../sass/style.scss */
+  .nav .company-menu-li,
+  .nav .features-menu-li {
+    margin-top: 1rem; }
+  /* line 269, ../sass/style.scss */
+  .nav .company-menu {
+    margin-top: 1rem; }
+  /* line 273, ../sass/style.scss */
+  .nav .open-menu .nav-btn {
+    background: var(--Almost-White);
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    -webkit-transform: translate(0.1rem, 0.1rem);
+            transform: translate(0.1rem, 0.1rem); }
+  /* line 281, ../sass/style.scss */
+  .nav .open-menu .nav-links {
+    padding: 4rem 0 1.5rem 0;
+    /* display: block; */
+    pointer-events: all;
+    -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+            clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+    opacity: 1;
+    /* clip-path: none; */ }
+  /* line 291, ../sass/style.scss */
+  .nav .open-menu .each-link button,
+  .nav .open-menu .each-link a {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  /* line 297, ../sass/style.scss */
+  .nav .open-menu .hamburger:first-child {
+    -webkit-transform: rotate(-100deg) translateY(-63px);
+            transform: rotate(-100deg) translateY(-63px);
+    color: red;
+    opacity: 0; }
+  /* line 302, ../sass/style.scss */
+  .nav .open-menu .hamburger:nth-child(2) {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg); }
+  /* line 305, ../sass/style.scss */
+  .nav .open-menu .hamburger:nth-child(3) {
+    -webkit-transform: rotate(45deg) translate(-0.4rem, -0.3rem);
+            transform: rotate(45deg) translate(-0.4rem, -0.3rem); }
 
 /***************Main**************/
+/* line 311, ../sass/style.scss */
 .main {
   padding: 1rem 0.5rem;
-  text-align: center;
-}
-
-.deco-img {
-  width: 100%;
-}
-
-.heading1 {
-  font-size: 2.5rem;
-  margin-top: 1.6rem;
-}
-
-.main-paragraph {
-  margin: 0.6rem 0.7rem 2.3rem 0.7rem;
-  color: var(--Medium-Gray);
-}
-
-.learn-more {
-  color: var(--Almost-White);
-  background: var(--Almost-Black);
-  padding: 0.8rem 1rem;
-  border-radius: 1rem;
-  font-weight: bold;
-  border: 0.1rem solid var(--Almost-Black);
-}
-
-.register-btn,
-.log-in-btn,
-.learn-more:hover,
-.learn-more:focus-visible {
-  background: var(--Almost-White);
-  color: var(--Almost-Black);
-}
-
-.base-icons {
-  margin-top: 3.5rem;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.img-container {
-  flex: 1;
-}
-/* adjusting the img sizes to ensure pixel perfect design */
-.img-container:first-child img {
-  width: 85%;
-}
-.img-container:nth-child(2) img {
-  width: 60%;
-}
-.img-container:nth-child(3) img {
-  width: 70%;
-}
-.img-container:nth-child(4) img {
-  width: 70%;
-}
+  text-align: center; }
+  /* line 315, ../sass/style.scss */
+  .main .hero-img {
+    display: inline-block;
+    width: 100%; }
+  /* line 320, ../sass/style.scss */
+  .main .heading1 {
+    font-size: 2.5rem;
+    margin-top: 1.6rem; }
+  /* line 325, ../sass/style.scss */
+  .main .main-paragraph {
+    margin: 0.6rem 0.7rem 2.3rem 0.7rem;
+    color: var(--Medium-Gray); }
+  /* line 330, ../sass/style.scss */
+  .main .learn-more {
+    color: var(--Almost-White);
+    background: var(--Almost-Black);
+    padding: 0.85rem 1.2rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    border: 0.1rem solid var(--Almost-Black); }
+  /* line 339, ../sass/style.scss */
+  .main .learn-more:focus-visible {
+    border-radius: 1rem; }
+  /* line 344, ../sass/style.scss */
+  .main .register-btn,
+  .main .log-in-btn,
+  .main .learn-more:hover,
+  .main .learn-more:focus-visible {
+    background: var(--Almost-White);
+    color: var(--Almost-Black); }
+  /* line 352, ../sass/style.scss */
+  .main .base-icons {
+    margin-top: 3.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    /* line 359, ../sass/style.scss */
+    .main .base-icons .img-container {
+      -webkit-box-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+      /* adjusting the img sizes to ensure pixel perfect design */ }
+      /* line 363, ../sass/style.scss */
+      .main .base-icons .img-container .img-container:first-child img {
+        width: 85%; }
+      /* line 367, ../sass/style.scss */
+      .main .base-icons .img-container .img-container:nth-child(2) img {
+        width: 60%; }
+      /* line 371, ../sass/style.scss */
+      .main .base-icons .img-container .img-container:nth-child(3) img {
+        width: 70%; }
+      /* line 375, ../sass/style.scss */
+      .main .base-icons .img-container .img-container:nth-child(4) img {
+        width: 70%; }
 
 /* footer */
+/* line 383, ../sass/style.scss */
 .attribution {
   text-align: center;
   margin: 2rem 1rem 0 0;
-  padding: 0 0.5rem;
-}
+  padding: 0 0.5rem; }
+  /* line 389, ../sass/style.scss */
+  .attribution .attribution a {
+    color: #3e52a3; }
+  /* line 393, ../sass/style.scss */
+  .attribution .attribution a:hover,
+  .attribution .attribution a:focus-visible {
+    color: var(--Almost-Black); }
+  /* line 398, ../sass/style.scss */
+  .attribution .attribution p {
+    margin: 0.3rem 0;
+    font-size: 0.7rem; }
 
-.attribution a {
-  color: hsl(228, 45%, 44%);
-}
-
-.attribution a:hover,
-.attribution a:focus-visible {
-  display: inline-block;
-  color: var(--Almost-Black);
-}
-
-.attribution p {
-  margin: 0.3rem 0;
-  font-size: 0.7rem;
-}
-
-@media(min-width: 600px) {
-  /* d */
-}
+/* animating the stroke */
+@-webkit-keyframes svg-animation {
+  to {
+    stroke-dashoffset: 0; } }
+@keyframes svg-animation {
+  to {
+    stroke-dashoffset: 0; } }
+@-webkit-keyframes fill-color {
+  to {
+    fill: var(--Almost-Black); } }
+@keyframes fill-color {
+  to {
+    fill: var(--Almost-Black); } }
+@-webkit-keyframes dropItem {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-5rem);
+            transform: translateY(-5rem); }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+@keyframes dropItem {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-5rem);
+            transform: translateY(-5rem); }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+/* media Queries */
+@media (min-width: 600px) {
+  /* d */ }

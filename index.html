@@ -8,13 +8,13 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="style/style.css">
-  <title>EngineerHamziey's Solution to Intro section with dropdown navigation</title>
+  <title>EngineerHamziey Solution to Intro section with dropdown navigation</title>
 </head>
 
 <body>
   <nav class="nav">
-    <button class="btn-skip">Skip To Main Content</button>
-    <div class="nav-logo">
+    <a href="#main-content" class="btn-skip-to-main-content">Skip To Main Content</a>
+    <div aria-hidden="true" class="nav-logo">
       <svg class="snap-svg" width="68.24707" height="21.826172">
         <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-329.27457,-147.88255)">
           <g style="font-size:30px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:139.99999762%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill-opacity:1;font-family:Arial;-inkscape-font-specification:Arial Bold"
@@ -30,7 +30,7 @@
               style="" id="path2997" />
             <path class="logo-path"
               d="m 382.34586,148.23412 3.83789,0 0,2.28515 c 0.49804,-0.78123 1.17186,-1.416 2.02148,-1.9043 0.8496,-0.48826 1.79198,-0.7324 2.82715,-0.73242 1.80663,2e-5 3.33983,0.70803 4.59961,2.12403 1.25975,1.41602 1.88963,3.38868 1.88965,5.91797 -2e-5,2.59766 -0.63479,4.6167 -1.9043,6.05712 -1.26955,1.44043 -2.80763,2.16065 -4.61426,2.16065 -0.85938,0 -1.63819,-0.1709 -2.33642,-0.5127 -0.69825,-0.34179 -1.43312,-0.92773 -2.20459,-1.75781 l 0,7.83691 -4.11621,0 z m 4.07226,7.51464 c 0,1.74806 0.34667,3.03956 1.04004,3.87452 0.69335,0.83496 1.53808,1.25244 2.53418,1.25244 0.95702,0 1.75292,-0.3833 2.3877,-1.14991 0.63475,-0.76659 0.95213,-2.02391 0.95214,-3.77197 -10e-6,-1.63085 -0.32716,-2.84178 -0.98144,-3.63281 -0.65431,-0.791 -1.46486,-1.18651 -2.43164,-1.18652 -1.00587,1e-5 -1.84083,0.38819 -2.50488,1.16455 -0.66407,0.77637 -0.9961,1.92628 -0.9961,3.4497 z"
-              style="" id="path2999" />
+              id="path2999" />
           </g>
         </g>
       </svg>
@@ -38,63 +38,78 @@
     <!-- I put false as default, as the hamburger menu is collapsed by default 
       and
     the text "Menu" in btn is on there for screen readers, so font-size: 0; removes it and color: transparent; to remove any traces of it during page reload/transition   -->
-    <button style="font-size: 0; color: transparent;" class=" nav-btn all-btn-links" aria-expanded="false">
+    <button aria-label="Navigation Menu" class="visually-hidden nav-btn all-btn-links expandables" aria-expanded="true">
       <span class="hamburger" aria-hidden="true"></span>
       <span class="hamburger" aria-hidden="true"></span>
       <span class="hamburger" aria-hidden="true"></span>
-      Menu
+      Navigation Menu
     </button>
+    <!-- I'll change aria-expanded to using javaScript, it's true because of those who disables JS on their browsers, the menu will be collapsed by default on their browser -->
     <ul class="nav-links ">
       <li class="each-link">
-        <a class="all-btn-links" href="#">
+        <button aria-expanded="true" class="all-btn-links features-btn expandables" href="#">
           Features
-          <img class="arrow-down" src="./images/icon-arrow-down.svg">
-        </a>
-        <ul aria-expanded="false" class="features-menu">
+          <img aria-hidden="true" class="arrow-down" src="./images/icon-arrow-down.svg" alt="">
+        </button>
+        <ul class="features-menu">
           <li class="features-menu-li">
-            <img src="./images/icon-todo.svg" alt="">
-            <a href="#">Todo list</a>
+            <img  aria-hidden="true" src="./images/icon-todo.svg" alt="">
+            <a href="#"><span class="visually-hidden">Feature 1: </span> Todo list</a>
           </li>
           <li class="features-menu-li">
-            <img src="./images/icon-calendar.svg" alt="">
-            <a href="#">Calender</a>
+            <img  aria-hidden="true" src="./images/icon-calendar.svg" alt="">
+            <a href="#"><span class="visually-hidden">Feature 2:</span> Calender</a>
           </li>
           <li class="features-menu-li">
-            <img src="./images/icon-reminders.svg" alt="">
-            <a href="#">Reminders</a>
+            <img  aria-hidden="true" src="./images/icon-reminders.svg" alt="">
+            <a href="#"><span class="visually-hidden">Feature 3:</span> Reminders</a>
           </li>
           <li class="features-menu-li">
-            <img src="./images/icon-planning.svg" alt="">
-            <a href="#">Planning</a>
+            <img  aria-hidden="true" src="./images/icon-planning.svg" alt="">
+            <a href="#"><span class="visually-hidden">Feature 4:</span> Planning</a>
           </li>
         </ul>
       </li>
       <li class="each-link">
-        <a class="all-btn-links" href="#">
+        <button aria-expanded="true" class="all-btn-links company-btn expandables" href="#">
           Company
-          <img class="arrow-down" src="./images/icon-arrow-down.svg">
-        </a>
+          <!-- if you don't add empty alt or aria-hidden: true,  chromeVox, makes up for you mistake by referring to the image using its image file name, for example it calls the image below "icon-arrow-down" -->
+          <img aria-hidden="true" class="arrow-down" src="./images/icon-arrow-down.svg" alt="">
+        </button>
         <ul class="company-menu">
           <li class="company-menu-li">
-            <a href="#">History</a>
+            <a href="#">
+              <span class="visually-hidden">Checkout the</span>
+              History
+              <span class="visually-hidden">of our company</span>
+            </a>
           </li>
           <li class="company-menu-li">
-            <a href="#">Our Team</a>
+            <a href="#">
+              <span class="visually-hidden">Checkout our</span>
+              Our Team
+            </a>
           </li>
           <li class="company-menu-li">
-            <a href="#">Blog</a>
+            <a href="#">
+              <span class="visually-hidden">Checkout our</span>
+              Blog
+            </a>
           </li>
         </ul>
       </li>
       <li class="each-link"><a class="all-btn-links" href="#">Careers</a></li>
-      <li class="each-link"><a class="all-btn-links" href="#">About</a></li>
+      <li class="each-link">
+        <a class="all-btn-links" href="#">
+        About <span class="visually-hidden">us</span>
+      </a>
+    </li>
       <li class="each-link"><a class="all-btn-links log-in-btn" href="#">Login</a></li>
       <li class="each-link"><a class="all-btn-links register-btn" href="#">Register</a></li>
     </ul>
   </nav>
-  <main class="main">
-    <!-- <div aria-hidden="true" class="deco-img"> -->
-    <img class="deco-img" src="./images/image-hero-mobile.png" alt="" aria-hidden="true">
+  <main id="main-content" class="main">
+    <img class="hero-img" src="./images/image-hero-mobile.png" alt="" aria-hidden="true">
     <!-- </div> -->
     <div class="main-container">
       <h1 class="heading1">Make remote work</h1>
@@ -103,9 +118,9 @@
         create team rituals, and watch productivity soar.
       </p>
 
-      <a class="learn-more all-btn-links" href="https://www.linkedin.com/in/hamzat-lawal-a88404239">Learn more</a>
+      <a class="learn-more all-btn-links" href="https://www.linkedin.com/in/hamzat-lawal-a88404239">Learn more <span class="visually-hidden">about our services</span> </a>
     </div>
-    <div class="base-icons">
+    <div aria-hidden="true" class="base-icons">
       <div class="img-container">
         <img src="./images/client-databiz.svg" alt="">
       </div>
@@ -128,12 +143,25 @@
 
   <footer class="attribution">
     <p>
-      Coded by <a class="all-btn-links" href="https://www.linkedin.com/in/hamzat-lawal-a88404239">Lawal Hamat
-        Ademola</a>. <a class="all-btn-links" href="#">Code Link</a>.Challenge by
-      <a class="all-btn-links" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      <!-- I hide the coded by, so that it won't repeat it, I also put it in the link so that users using screen readers and tabing through will have full understanding -->
+      <span aria-hidden="true">
+        Coded by 
+      </span>
+      <a class="all-btn-links" href="https://www.linkedin.com/in/hamzat-lawal-a88404239">
+        <span class="visually-hidden">Coded by</span>
+        Lawal Hamzat Ademola
+        <span class="visually-hidden">
+          Click to visit his Linkedin profile.
+        </span>
+      </a>
+      <a class="all-btn-links" href="#">Code Link.</a>
+      Challenge by
+      <a class="all-btn-links" href="https://www.frontendmentor.io?ref=challenge" target="_blank">
+        Frontend Mentor.
+      </a>
     </p>
   </footer>
-  <!-- <div class="set-space"></div> -->
+
 
   <script src="./js/app.js"></script>
 </body>

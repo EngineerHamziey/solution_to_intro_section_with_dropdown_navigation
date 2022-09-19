@@ -1,4 +1,4 @@
-- what do you think of my code? is it clean? if know what do you recommend?
+- what do you think of my code? is it clean? if no what do you recommend?
 
 - I put some effort trying to make sure no details is left out.
 do you notice any details left out?(like color, font, etc).
@@ -22,5 +22,5 @@ do you notice any details left out?(like color, font, etc).
 
 how I ensure it's accessible:(Read how to write accessibility report for a website)
 - I added the skip to main content button.
-- I ensure that all buttons/target size are atleast 44px x 44px, some might appear like they are not up to that but there is actually a hidden/transparent padding around it that make it up to 44px x 44px.
-
+- I ensure that all buttons/target size are about 44px x 44px, some might appear like they are not up to that but there is actually a hidden/transparent padding around it that make it up to 44px x 44px.
+- By adding some visually hidden text to ensure screen reader users(navigating from links to links) have the best possible experience
