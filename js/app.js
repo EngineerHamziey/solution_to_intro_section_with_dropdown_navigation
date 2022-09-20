@@ -49,8 +49,9 @@ allPath.forEach(function (eachPath, itsIndex) {
 pathsParent.style.animationDelay = `${animDelay}s`;
 // SVG anime ends
 
-console.log(arrowDown);
+// console.log(arrowDown);
 function bringMyNav() {
+  console.log("Here is your nav bro :\)");
   navMenu.classList.toggle("open-menu");
   navBtn.classList.toggle("open");
   // close mini menus when nav closes
