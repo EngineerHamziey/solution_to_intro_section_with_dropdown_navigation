@@ -12,23 +12,25 @@
 </head>
 
 <body>
-  <nav class="nav">
-    <a href="#main-content" class="btn-skip-to-main-content">Skip To Main Content</a>
-    <div aria-hidden="true" class="nav-logo">
-      <svg class="snap-svg" width="68.24707" height="21.826172">
+  <!-- so that site can look good on devices without javaScript enabled, I shall have a class name noScript__open, that will be applied to some element, then javaScript will be used to remove it so that site be behave normal for user that enabled javascript -->
+  <nav class="nav nav--open">
+  <!-- <nav class="nav"> -->
+    <a href="#main-content" class="btn nav__btn nav__btn--skip-to-main-content">Skip To Main Content</a>
+    <div aria-hidden="true" class="nav__logo">
+      <svg class="nav__svg" width="68.24707" height="21.826172">
         <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-329.27457,-147.88255)">
           <g style="font-size:30px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:139.99999762%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill-opacity:1;font-family:Arial;-inkscape-font-specification:Arial Bold"
             id="text2985">
-            <path class="logo-path"
+            <path class="nav__path"
               d="m 329.27457,159.35228 4.13086,-0.62988 c 0.17577,0.80078 0.53222,1.40869 1.06933,1.82373 0.5371,0.41504 1.28906,0.62256 2.25586,0.62256 1.06445,0 1.86523,-0.19531 2.40235,-0.58594 0.36131,-0.27344 0.54198,-0.63965 0.54199,-1.09863 -10e-6,-0.3125 -0.0977,-0.57129 -0.29297,-0.77637 -0.20509,-0.19531 -0.66407,-0.37597 -1.37695,-0.54199 -3.32032,-0.73242 -5.42481,-1.40136 -6.31348,-2.00684 -1.23047,-0.83983 -1.84571,-2.00683 -1.8457,-3.50098 -1e-5,-1.34764 0.53222,-2.48045 1.59668,-3.39843 1.06444,-0.91796 2.71483,-1.37694 4.95117,-1.37696 2.12889,2e-5 3.71092,0.3467 4.74609,1.04004 1.03514,0.69338 1.74803,1.71877 2.13867,3.07617 l -3.88183,0.71778 c -0.16603,-0.60546 -0.48097,-1.06933 -0.94483,-1.3916 -0.46387,-0.32226 -1.12549,-0.48339 -1.98486,-0.4834 -1.08399,1e-5 -1.86036,0.15138 -2.3291,0.4541 -0.31251,0.21486 -0.46876,0.49318 -0.46875,0.83496 -1e-5,0.29298 0.13671,0.542 0.41015,0.74707 0.37109,0.27345 1.65283,0.65919 3.84522,1.15723 2.19237,0.49805 3.72313,1.1084 4.59228,1.83105 0.85936,0.73243 1.28905,1.75294 1.28907,3.06152 -2e-5,1.42579 -0.59572,2.65137 -1.78711,3.67676 -1.19142,1.02539 -2.95411,1.53809 -5.28809,1.53809 -2.11915,0 -3.79639,-0.42969 -5.03174,-1.28906 -1.23535,-0.85938 -2.04346,-2.02637 -2.42431,-3.50098 z"
               style="" id="path2993" />
-            <path class="logo-path"
+            <path class="nav__path"
               d="m 361.57437,163.79076 -4.11621,0 0,-7.93946 c -1e-5,-1.67967 -0.0879,-2.7661 -0.26367,-3.25927 -0.17579,-0.49316 -0.46144,-0.87646 -0.85694,-1.14991 -0.39551,-0.27342 -0.87159,-0.41014 -1.42822,-0.41015 -0.7129,1e-5 -1.35255,0.19532 -1.91894,0.58593 -0.56642,0.39064 -0.9546,0.90822 -1.16455,1.55274 -0.20997,0.64454 -0.31495,1.83595 -0.31495,3.57422 l 0,7.0459 -4.11621,0 0,-15.55664 3.82325,0 0,2.28515 c 1.35741,-1.7578 3.06639,-2.6367 5.12695,-2.63672 0.90819,2e-5 1.73827,0.16359 2.49023,0.49073 0.75194,0.32716 1.32079,0.74464 1.70655,1.25244 0.38572,0.50782 0.65428,1.08399 0.80566,1.72851 0.15135,0.64455 0.22704,1.5674 0.22705,2.76856 z"
               style="" id="path2995" />
-            <path class="logo-path"
+            <path class="nav__path"
               d="m 368.84,152.98021 -3.73536,-0.67383 c 0.41992,-1.50389 1.14258,-2.61717 2.16797,-3.33984 1.02539,-0.72264 2.54883,-1.08397 4.57032,-1.08399 1.83592,2e-5 3.20311,0.2173 4.10156,0.65186 0.89842,0.43458 1.53075,0.98634 1.89697,1.65527 0.3662,0.66896 0.5493,1.89699 0.54932,3.68408 l -0.0439,4.80469 c -1e-5,1.36719 0.0659,2.37549 0.19776,3.0249 0.13182,0.64942 0.3784,1.34522 0.73974,2.08741 l -4.07226,0 c -0.10744,-0.27344 -0.23927,-0.67871 -0.39551,-1.21582 -0.0684,-0.24414 -0.1172,-0.40528 -0.14649,-0.4834 -0.70313,0.68359 -1.45508,1.19629 -2.25585,1.53808 -0.80079,0.3418 -1.65529,0.5127 -2.56348,0.5127 -1.60157,0 -2.86377,-0.43457 -3.78662,-1.30371 -0.92286,-0.86914 -1.38428,-1.96777 -1.38428,-3.2959 0,-0.8789 0.20996,-1.66259 0.62988,-2.35107 0.41992,-0.68847 1.0083,-1.21582 1.76514,-1.58204 0.75683,-0.3662 1.84814,-0.68602 3.27393,-0.95947 1.92381,-0.36132 3.25682,-0.69823 3.99902,-1.01074 l 0,-0.41016 c -10e-6,-0.791 -0.19532,-1.35497 -0.58594,-1.69189 -0.39063,-0.3369 -1.12794,-0.50536 -2.21191,-0.50537 -0.73243,1e-5 -1.30372,0.14405 -1.71387,0.43213 -0.41016,0.28809 -0.74219,0.79346 -0.99609,1.51611 z m 5.50781,3.33984 c -0.52736,0.17579 -1.36232,0.38575 -2.50488,0.62989 -1.14259,0.24414 -1.88966,0.4834 -2.24121,0.71777 -0.53712,0.38086 -0.80567,0.86426 -0.80567,1.45019 0,0.57618 0.21484,1.07423 0.64453,1.49415 0.42968,0.41992 0.97656,0.62988 1.64063,0.62988 0.74218,0 1.45018,-0.24414 2.12402,-0.73242 0.49804,-0.37109 0.82519,-0.82519 0.98145,-1.36231 0.10741,-0.35156 0.16112,-1.0205 0.16113,-2.00683 z"
               style="" id="path2997" />
-            <path class="logo-path"
+            <path class="nav__path"
               d="m 382.34586,148.23412 3.83789,0 0,2.28515 c 0.49804,-0.78123 1.17186,-1.416 2.02148,-1.9043 0.8496,-0.48826 1.79198,-0.7324 2.82715,-0.73242 1.80663,2e-5 3.33983,0.70803 4.59961,2.12403 1.25975,1.41602 1.88963,3.38868 1.88965,5.91797 -2e-5,2.59766 -0.63479,4.6167 -1.9043,6.05712 -1.26955,1.44043 -2.80763,2.16065 -4.61426,2.16065 -0.85938,0 -1.63819,-0.1709 -2.33642,-0.5127 -0.69825,-0.34179 -1.43312,-0.92773 -2.20459,-1.75781 l 0,7.83691 -4.11621,0 z m 4.07226,7.51464 c 0,1.74806 0.34667,3.03956 1.04004,3.87452 0.69335,0.83496 1.53808,1.25244 2.53418,1.25244 0.95702,0 1.75292,-0.3833 2.3877,-1.14991 0.63475,-0.76659 0.95213,-2.02391 0.95214,-3.77197 -10e-6,-1.63085 -0.32716,-2.84178 -0.98144,-3.63281 -0.65431,-0.791 -1.46486,-1.18651 -2.43164,-1.18652 -1.00587,1e-5 -1.84083,0.38819 -2.50488,1.16455 -0.66407,0.77637 -0.9961,1.92628 -0.9961,3.4497 z"
               id="path2999" />
           </g>
@@ -38,132 +40,171 @@
     <!-- I put false as default, as the hamburger menu is collapsed by default 
       and
     the text "Menu" in btn is on there for screen readers, so font-size: 0; removes it and color: transparent; to remove any traces of it during page reload/transition   -->
-    <button aria-label="Navigation Menu" class="visually-hidden nav-btn all-btn-links expandables" aria-expanded="true">
-      <span class="hamburger" aria-hidden="true"></span>
-      <span class="hamburger" aria-hidden="true"></span>
-      <span class="hamburger" aria-hidden="true"></span>
-      Navigation Menu
+    <button aria-label="Menu" class="btn nav__btn nav__btn--menu btn--expandables visually-hidden" aria-expanded="true">
+      <span class="nav__btn--menu--hamburger" aria-hidden="true"></span>
+      <span class="nav__btn--menu--hamburger" aria-hidden="true"></span>
+      <span class="nav__btn--menu--hamburger" aria-hidden="true"></span>
+      Menu
     </button>
     <!-- I'll change aria-expanded to using javaScript, it's true because of those who disables JS on their browsers, the menu will be collapsed by default on their browser -->
     <ul class="nav-links ">
-      <li class="each-link">
-        <button aria-expanded="true" class="all-btn-links features-btn expandables" href="#">
+      <li class="nav-links__li nav-links__li--miniMenu nav-links__li--miniMenu--features">
+        <button 
+        aria-expanded="true" 
+        class="
+          btn
+          nav-links__li__btn 
+          nav-links__li__btn--features-btn 
+          expandables
+        ">
           Features
-          <img aria-hidden="true" class="arrow-down" src="./images/icon-arrow-down.svg" alt="">
+          <img 
+          aria-hidden="true" 
+          class="
+          nav-links__li__btn__arrowDown
+          nav-links__li__btn__arrowDown--open" 
+          src="./images/icon-arrow-down.svg" 
+          alt="">
         </button>
-        <ul class="features-menu">
-          <li class="features-menu-li">
+        <ul class="
+        nav__miniMenu
+        nav__miniMenu--open
+        nav__miniMenu--features">
+          <li class="nav__miniMenu__li nav__miniMenu__li-features">
             <img  aria-hidden="true" src="./images/icon-todo.svg" alt="">
-            <a href="#"><span class="visually-hidden">Feature 1: </span> Todo list</a>
+            <a class="btn" href="#"><span class="visually-hidden">Feature 1: </span> Todo list</a>
           </li>
-          <li class="features-menu-li">
+          <li class="nav__miniMenu__li nav__miniMenu__li-features">
             <img  aria-hidden="true" src="./images/icon-calendar.svg" alt="">
-            <a href="#"><span class="visually-hidden">Feature 2:</span> Calender</a>
+            <a class="btn" href="#"><span class="visually-hidden">Feature 2:</span> Calender</a>
           </li>
-          <li class="features-menu-li">
+          <li class="nav__miniMenu__li nav__miniMenu__li-features">
             <img  aria-hidden="true" src="./images/icon-reminders.svg" alt="">
-            <a href="#"><span class="visually-hidden">Feature 3:</span> Reminders</a>
+            <a class="btn" href="#"><span class="visually-hidden">Feature 3:</span> Reminders</a>
           </li>
-          <li class="features-menu-li">
+          <li class="nav__miniMenu__li nav__miniMenu__li-features">
             <img  aria-hidden="true" src="./images/icon-planning.svg" alt="">
-            <a href="#"><span class="visually-hidden">Feature 4:</span> Planning</a>
+            <a class="btn" href="#"><span class="visually-hidden">Feature 4:</span> Planning</a>
           </li>
         </ul>
       </li>
-      <li class="each-link">
-        <button aria-expanded="true" class="all-btn-links company-btn expandables" href="#">
+      <li class="nav-links__li nav-links__li--miniMenu nav-links__li--miniMenu--company">
+        <button 
+        aria-expanded="true" 
+        class="
+          btn
+          nav-links__li__btn 
+          nav-links__li__btn--company-btn 
+          expandables">
           Company
           <!-- if you don't add empty alt or aria-hidden: true,  chromeVox, makes up for you mistake by referring to the image using its image file name, for example it calls the image below "icon-arrow-down" -->
-          <img aria-hidden="true" class="arrow-down" src="./images/icon-arrow-down.svg" alt="">
+          <img 
+          aria-hidden="true" 
+          class="
+          nav-links__li__btn__arrowDown
+          nav-links__li__btn__arrowDown--open" 
+          src="./images/icon-arrow-down.svg" 
+          alt="">
         </button>
-        <ul class="company-menu">
-          <li class="company-menu-li">
-            <a href="#">
+        <ul class="
+          nav__miniMenu 
+          nav__miniMenu--open
+          nav__miniMenu--company">
+          <li class="nav__miniMenu__li">
+            <a class="btn" href="#">
               <span class="visually-hidden">Checkout the</span>
               History
               <span class="visually-hidden">of our company</span>
             </a>
           </li>
-          <li class="company-menu-li">
-            <a href="#">
+          <li class="nav__miniMenu__li">
+            <a class="btn" href="#">
               <span class="visually-hidden">Checkout our</span>
               Our Team
             </a>
           </li>
-          <li class="company-menu-li">
-            <a href="#">
+          <li class="nav__miniMenu__li">
+            <a class="btn" href="#">
               <span class="visually-hidden">Checkout our</span>
               Blog
             </a>
           </li>
         </ul>
       </li>
-      <li class="each-link"><a class="all-btn-links" href="#">Careers</a></li>
-      <li class="each-link">
-        <a class="all-btn-links" href="#">
+      <li class="nav-links__li">
+        <a class="btn nav-links__li__btn" href="#">Careers</a>
+      </li>
+      <li class="nav-links__li">
+        <a class="btn nav-links__li__btn" href="#">
         About <span class="visually-hidden">us</span>
       </a>
     </li>
-      <li class="each-link"><a class="all-btn-links log-in-btn" href="#">Login</a></li>
-      <li class="each-link"><a class="all-btn-links register-btn" href="#">Register</a></li>
+    <li class="nav-links__li">
+      <a class="btn nav-links__li__btn nav-links__li__btn--logIn-btn" href="#">Login</a>
+    </li>
+    <li class="nav-links__li">
+      <a class="btn nav-links__li__btn nav-links__li__btn--register-btn" href="#">Register</a>
+    </li>
     </ul>
   </nav>
-  <main id="main-content" class="main">
-    <img class="hero-img" src="./images/image-hero-mobile.png" alt="" aria-hidden="true">
+  
+  <noscript>
+    <p class="noScript__p">
+      Please enable javaScript in your browser settings so that the page will be fully functional.
+    </p>
+  </noscript>
+
+  <main id="main" class="main">
+    <img class="main__background-img" src="./images/image-hero-mobile.png" alt="" aria-hidden="true">
     <!-- </div> -->
-    <div class="main-container">
-      <h1 class="heading1">Make remote work</h1>
-      <p class="main-paragraph">
+    <div class="main__content">
+      <h1 class="main__heading1">Make remote work</h1>
+      <p class="main__paragraph">
         Get your team in sync, no matter your location. Streamline processes,
         create team rituals, and watch productivity soar.
       </p>
 
-      <a class="learn-more all-btn-links" href="https://www.linkedin.com/in/hamzat-lawal-a88404239">Learn more <span class="visually-hidden">about our services</span> </a>
+      <a class="btn main__btn--learn-more" href="https://www.linkedin.com/in/hamzat-lawal-a88404239">Learn more<span class="visually-hidden">about our services</span> </a>
     </div>
-    <div aria-hidden="true" class="base-icons">
-      <div class="img-container">
+    <div aria-hidden="true" class="main__icons-container">
+      <div class="main__each-icons-wrapper">
         <img src="./images/client-databiz.svg" alt="">
       </div>
-      <div class="img-container">
+      <div class="main__each-icons-wrapper">
         <img src="./images/client-audiophile.svg" alt="">
       </div>
-      <div class="img-container">
+      <div class="main__each-icons-wrapper">
         <img src="./images/client-meet.svg" alt="">
       </div>
-      <div class="img-container">
+      <div class="main__each-icons-wrapper">
         <img src="./images/client-maker.svg" alt="">
       </div>
-
-
-
-
     </div>
-
   </main>
 
   <footer class="attribution">
-    <p>
+    <p class="attribution__p"> 
       <!-- I hide the coded by, so that it won't repeat it, I also put it in the link so that users using screen readers and tabing through will have full understanding -->
       <span aria-hidden="true">
         Coded by 
       </span>
-      <a class="all-btn-links" href="https://www.linkedin.com/in/hamzat-lawal-a88404239">
+      <a class="btn attribution__btn" href="https://www.linkedin.com/in/hamzat-lawal-a88404239">
         <span class="visually-hidden">Coded by</span>
         Lawal Hamzat Ademola
         <span class="visually-hidden">
           Click to visit his Linkedin profile.
         </span>
       </a>
-      <a class="all-btn-links" href="#">Code Link.</a>
+      <a class="btn attribution__btn" href="#">Code Link.</a>
       Challenge by
-      <a class="all-btn-links" href="https://www.frontendmentor.io?ref=challenge" target="_blank">
+      <a class="btn attribution__btn" href="https://www.frontendmentor.io?ref=challenge" target="_blank">
         Frontend Mentor.
       </a>
     </p>
   </footer>
 
 
-  <script src="./js/app.js"></script>
+  <!-- <script src="./js/app.js"></script> -->
 </body>
 
 </html>

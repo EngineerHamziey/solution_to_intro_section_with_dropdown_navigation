@@ -1,12 +1,10 @@
 /* take care of people who disable JS */
-/* line 3, ../sass/style.scss */
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
-/* line 10, ../sass/style.scss */
 :root {
   --Almost-White: hsl(0, 0%, 98%);
   /* --Almost-White: hsl(0, 0%, 8%); */
@@ -16,61 +14,89 @@
   --my-parag-size: 1.125rem;
   /*i.e 18px*/ }
 
-/* line 20, ../sass/style.scss */
 body {
   font-family: sans-serif;
   line-height: 1.5;
   background: var(--Almost-White);
   color: var(--Almost-Black); }
-  /* line 27, ../sass/style.scss */
-  body .visually-hidden {
-    font-size: 0; }
-  /* line 32, ../sass/style.scss */
-  body p {
-    font-size: var(--my-parag-size); }
-  /* line 36, ../sass/style.scss */
-  body a {
-    text-decoration: none; }
-  /* line 40, ../sass/style.scss */
-  body .all-btn-links {
-    -webkit-transition: all 0.3s ease-in;
-    transition: all 0.3s ease-in;
-    /*display: none;*/ }
-    /* line 44, ../sass/style.scss */
-    body .all-btn-links img {
-      pointer-events: none; }
-  /* line 49, ../sass/style.scss */
-  body .each-link.open .arrow-down {
-    content: url(../images/icon-arrow-up.svg); }
-  /* line 53, ../sass/style.scss */
-  body .company-menu li a:focus-visible,
-  body .features-menu li a:focus-visible,
-  body .all-btn-links:focus-visible {
-    outline: 0.1rem dotted var(--Almost-Black);
-    border-radius: 0.3rem; }
-  /* line 60, ../sass/style.scss */
-  body .all-btn-links:hover {
-    border-color: var(--Almost-Black); }
 
-/* nav, main, footer {
-  max-width: 1440px;
-} */
-/* line 70, ../sass/style.scss */
+ul {
+  list-style-type: none; }
+
+/*
+I chose font-size: 0 over display none,
+because display:none breaks my design
+ */
+.visually-hidden {
+  font-size: 0; }
+
+p {
+  font-size: var(--my-parag-size); }
+
+a {
+  text-decoration: none; }
+
+.btn {
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in; }
+  .btn:hover {
+    border-color: var(--Almost-Black);
+    color: var(--Almost-Black); }
+  .btn:focus-visible {
+    outline: dotted 0.3rem var(--Almost-Black);
+    color: var(--Almost-Black); }
+
+img {
+  pointer-events: none; }
+
 .nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  /* background: red; */
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  /* justify-content: center; */
-  padding: 0.5rem 1rem;
-  /* making the svg(snap) anime */
-  /* the nav btn and hamburger */
-  /* change the hamburger to X */ }
-  /* line 78, ../sass/style.scss */
-  .nav .btn-skip-to-main-content {
+  padding: 0.5rem 1rem; }
+  .nav__logo {
+    min-height: 2.75rem;
+    padding: 0.8rem 0 0 0.5rem; }
+  .nav__svg {
+    /* applying the fill globally to all */
+    fill: transparent;
+    -webkit-animation: fill-color 4s ease forwards;
+            animation: fill-color 4s ease forwards; }
+  .nav__path {
+    stroke: var(--Almost-Black);
+    -webkit-animation-name: svg-animation;
+            animation-name: svg-animation;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-timing-function: ease;
+            animation-timing-function: ease;
+    /* the animation duration and delay will be set for each path in my JS */ }
+  .nav__btn--menu {
+    display: block;
+    margin: auto 0 auto auto;
+    /* recommended by wcag is 44 x 44px equivalent to 2.75rem*/
+    width: 2.75rem;
+    height: 2.75rem;
+    background-color: transparent;
+    border-radius: 0.2rem;
+    border: none;
+    z-index: 2; }
+    .nav__btn--menu--hamburger {
+      display: block;
+      width: 2rem;
+      height: 0.15rem;
+      background: var(--Almost-Black);
+      border-radius: 0.1rem;
+      -webkit-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
+      pointer-events: none;
+      margin: auto; }
+      .nav__btn--menu--hamburger:nth-child(2) {
+        margin: 0.3rem auto; }
+  .nav__btn--skip-to-main-content {
     position: absolute;
     left: 1rem;
     top: 1rem;
@@ -83,64 +109,11 @@ body {
     transition: all 0.5s ease;
     -webkit-transform: translate(2rem, -10rem);
             transform: translate(2rem, -10rem); }
-  /* line 93, ../sass/style.scss */
-  .nav .btn-skip-to-main-content:focus-visible {
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-    color: var(--Almost-Black); }
-  /* line 98, ../sass/style.scss */
-  .nav .nav-logo {
-    min-height: 2.75rem;
-    padding: 0.8rem 0 0 0.5rem; }
-  /* line 105, ../sass/style.scss */
-  .nav .snap-svg {
-    /* this height and margin wont make the nav jump when the btn is given position: fixed */
-    /* margin: auto; */
-    /* applying the fill globally to all */
-    fill: transparent;
-    -webkit-animation: fill-color 4s ease forwards;
-            animation: fill-color 4s ease forwards; }
-  /* line 113, ../sass/style.scss */
-  .nav .logo-path {
-    stroke: var(--Almost-Black);
-    -webkit-animation-name: svg-animation;
-            animation-name: svg-animation;
-    -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-    -webkit-animation-timing-function: ease;
-            animation-timing-function: ease;
-    /* the animation duration and delay will be set in my JS */ }
-  /* line 121, ../sass/style.scss */
-  .nav .nav-btn {
-    display: inline-block;
-    margin: auto 0 auto auto;
-    /* recommended by wcag is 44 x 44px equivalent to 2.75rem*/
-    width: 2.75rem;
-    height: 2.75rem;
-    background-color: transparent;
-    border-radius: 0.2rem;
-    border: none;
-    z-index: 2;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease; }
-  /* line 134, ../sass/style.scss */
-  .nav .hamburger {
-    display: block;
-    width: 2rem;
-    height: 0.15rem;
-    background: var(--Almost-Black);
-    border-radius: 0.1rem;
-    -webkit-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-    pointer-events: none;
-    /* put em all at the center of the button */
-    margin: auto; }
-  /* line 146, ../sass/style.scss */
-  .nav .hamburger:nth-child(2) {
-    margin: 0.3rem auto; }
-  /* line 150, ../sass/style.scss */
-  .nav .nav-links {
-    /* display: none; */
+    .nav__btn--skip-to-main-content:focus-visible {
+      -webkit-transform: translate(0, 0);
+              transform: translate(0, 0);
+      color: var(--Almost-Black); }
+  .nav-links {
     list-style: none;
     /* padding-top: 4rem; */
     /* height: max(40rem, 100vh); */
@@ -148,183 +121,145 @@ body {
     min-width: 60%;
     background: var(--Almost-White);
     position: fixed;
-    /* position: absolute; */
     right: 0;
     top: 0;
     -webkit-transition: all 0.6s ease;
     transition: all 0.6s ease;
-    /* background: red; */
     clip-path: polygon(100% 100%, 100% 0, 100% 0, 100% 100%);
     -webkit-clip-path: polygon(100% 100%, 100% 0, 100% 0, 100% 100%);
-    pointer-events: none; }
-  /* line 169, ../sass/style.scss */
-  .nav .each-link button,
-  .nav .each-link a {
-    border: none;
-    background: var(--Almost-white);
-    -webkit-transition: all 1s ease 0.1s;
-    transition: all 1s ease 0.1s;
-    color: var(--Almost-Black);
-    -webkit-transform: translate(60vw) rotate(-100deg) scale(4);
-            transform: translate(60vw) rotate(-100deg) scale(4); }
-  /* line 178, ../sass/style.scss */
-  .nav .each-link .all-btn-links {
-    /* display:  */
-    display: inline-block;
-    color: var(--Medium-Gray);
-    border-color: var(--Medium-Gray);
-    margin: 0.2em auto auto 0.3rem;
-    padding: 0.5rem 1rem;
-    /* background: brown; */ }
-  /* line 188, ../sass/style.scss */
-  .nav .each-link .all-btn-links:hover {
-    color: var(--Almost-Black);
-    /* display: none; */ }
-  /* line 193, ../sass/style.scss */
-  .nav .each-link .register-btn,
-  .nav .each-link .log-in-btn {
-    /* inherited from .learn-more:hover*/
-    width: calc(100% - 2rem);
-    text-align: center;
-    padding: 0.5rem 1rem;
-    border-radius: 1rem;
-    /* font-weight: bold; */
-    border: 0.1rem solid var(--Medium-Gray);
-    /* 2rems already subtracted from the width */
-    margin: 0 1rem; }
-  /* line 206, ../sass/style.scss */
-  .nav .all-btn-links.log-in-btn {
-    border-color: transparent;
-    margin-top: 1rem;
-    margin-bottom: 0.3rem; }
-  /* line 212, ../sass/style.scss */
-  .nav .register-btn:hover {
-    border-color: var(--Almost-Black); }
-  /* line 216, ../sass/style.scss */
-  .nav .arrow-down {
-    -webkit-transition: all 0.6s ease;
-    transition: all 0.6s ease;
-    display: inline-block;
-    margin-left: 0.6rem; }
-  /* line 226, ../sass/style.scss */
-  .nav .company-menu,
-  .nav .features-menu {
-    display: none;
+    pointer-events: none;
+    opacity: 0; }
+    .nav-links__li--miniMenu--company {
+      margin-top: 1rem; }
+    .nav-links__li__btn {
+      border: none;
+      background: var(--Almost-white);
+      -webkit-transition: all 1s ease 0.1s;
+      transition: all 1s ease 0.1s;
+      -webkit-transform: translate(60vw) rotate(-100deg) scale(4);
+              transform: translate(60vw) rotate(-100deg) scale(4);
+      display: inline-block;
+      color: var(--Medium-Gray);
+      border-color: var(--Medium-Gray);
+      margin: 0.2em auto auto 0.3rem;
+      padding: 0.5rem 1rem; }
+      .nav-links__li__btn--register-btn, .nav-links__li__btn--logIn-btn {
+        /* inherited from  .learn-more:hover*/
+        width: calc(100% - 2rem);
+        text-align: center;
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        /* font-weight: bold; */
+        border: 0.1rem solid var(--Medium-Gray);
+        /* 2rems already subtracted from the width */
+        margin: 0 1rem;
+        background: var(--Almost-White);
+        color: var(--Almost-Black); }
+        .nav-links__li__btn--register-btn:hover, .nav-links__li__btn--logIn-btn:hover {
+          -webkit-transform: scale(1);
+                  transform: scale(1); }
+      .nav-links__li__btn__arrowDown {
+        -webkit-transition: all 0.6s ease;
+        transition: all 0.6s ease;
+        display: inline-block;
+        margin-left: 0.6rem;
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out; }
+        .nav-links__li__btn__arrowDown--open {
+          content: url(../images/icon-arrow-up.svg); }
+      .nav-links__li__btn--logIn-btn {
+        border-color: transparent;
+        margin-top: 1rem;
+        margin-bottom: 0.3rem; }
+      .nav-links__li__btn--register-btn:hover {
+        border-color: var(--Almost-Black); }
+      .nav-links__li__btn:hover {
+        color: var(--Almost-Black);
+        -webkit-transform: scale(1.2);
+                transform: scale(1.2); }
+  .nav__miniMenu {
     list-style: none;
     margin: 1.5rem 0 0.4rem 2rem;
     color: var(--Medium-Gray);
-    /* background: red; */
-    /* animation: 0.3s ease-in dropItem;  */
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
-    opacity: 0.3;
     /* display: none; */
-    /* transform: translateY(-100rem); */ }
-  /* line 241, ../sass/style.scss */
-  .nav li.open ul.company-menu,
-  .nav li.open ul.features-menu {
-    background: var(--Almost-White);
-    display: block;
-    /* animation: 0.3s ease-in-out dropItem;  */
-    opacity: 1;
-    /* transform: translateY(0); */ }
-  /* line 250, ../sass/style.scss */
-  .nav .company-menu li a,
-  .nav .features-menu li a {
-    color: var(--Medium-Gray); }
-  /* line 255, ../sass/style.scss */
-  .nav .company-menu li a:hover,
-  .nav .features-menu li a:hover {
-    color: var(--Almost-Black); }
-  /* line 260, ../sass/style.scss */
-  .nav .features-menu-li img {
-    display: inline-block;
-    margin-right: 0.5rem; }
-  /* line 265, ../sass/style.scss */
-  .nav .company-menu-li,
-  .nav .features-menu-li {
-    margin-top: 1rem; }
-  /* line 270, ../sass/style.scss */
-  .nav .company-menu {
-    margin-top: 1rem; }
-  /* line 274, ../sass/style.scss */
-  .nav .open-menu .nav-btn {
+    -webkit-transform: translateY(-5rem);
+            transform: translateY(-5rem);
+    clip-path: polygon(0% 100%, 0% 0, 100% 0, 100% 100%);
+    -webkit-clip-path: polygon(100% 100%, 100% 0, 100% 0, 100% 100%); }
+    .nav__miniMenu--open {
+      clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+      -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+      -webkit-transform: none;
+              transform: none;
+      background: var(--Almost-White);
+      opacity: 1; }
+    .nav__miniMenu a {
+      color: var(--Medium-Gray); }
+      .nav__miniMenu a:hover {
+        color: var(--Almost-Black); }
+    .nav__miniMenu__li {
+      margin-top: 1rem; }
+      .nav__miniMenu__li img {
+        display: inline-block;
+        margin-right: 0.5rem; }
+  .nav--open .nav__btn--menu {
     background: var(--Almost-White);
     position: fixed;
     top: 1rem;
     right: 1rem;
     -webkit-transform: translate(0.1rem, 0.1rem);
-            transform: translate(0.1rem, 0.1rem); }
-  /* line 282, ../sass/style.scss */
-  .nav .open-menu .nav-links {
-    padding: 4rem 0 1.5rem 0;
-    /* display: block; */
-    pointer-events: all;
+            transform: translate(0.1rem, 0.1rem);
+    /* change the hamburger to X */ }
+    .nav--open .nav__btn--menu--hamburger:first-child {
+      -webkit-transform: rotate(-100deg) translateY(-63px);
+              transform: rotate(-100deg) translateY(-63px);
+      color: red;
+      opacity: 0; }
+    .nav--open .nav__btn--menu--hamburger:nth-child(2) {
+      -webkit-transform: rotate(-45deg);
+              transform: rotate(-45deg); }
+    .nav--open .nav__btn--menu--hamburger:nth-child(3) {
+      -webkit-transform: rotate(45deg) translate(-0.4rem, -0.3rem);
+              transform: rotate(45deg) translate(-0.4rem, -0.3rem); }
+  .nav--open .nav-links {
+    clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
     -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
-            clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
-    -webkit-transform: rotate(0);
-            transform: rotate(0);
-    opacity: 1;
-    /* clip-path: none; */ }
-  /* line 292, ../sass/style.scss */
-  .nav .open-menu .each-link button,
-  .nav .open-menu .each-link a {
-    -webkit-transform: rotate(0);
-            transform: rotate(0);
-    -webkit-transform: scale(1);
-            transform: scale(1); }
-  /* line 298, ../sass/style.scss */
-  .nav .open-menu .hamburger:first-child {
-    -webkit-transform: rotate(-100deg) translateY(-63px);
-            transform: rotate(-100deg) translateY(-63px);
-    color: red;
-    opacity: 0; }
-  /* line 303, ../sass/style.scss */
-  .nav .open-menu .hamburger:nth-child(2) {
-    -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg); }
-  /* line 306, ../sass/style.scss */
-  .nav .open-menu .hamburger:nth-child(3) {
-    -webkit-transform: rotate(45deg) translate(-0.4rem, -0.3rem);
-            transform: rotate(45deg) translate(-0.4rem, -0.3rem); }
+    pointer-events: unset;
+    padding: 4rem 0 0 0;
+    opacity: 1; }
+    .nav--open .nav-links__li__btn {
+      -webkit-transform: none;
+              transform: none; }
 
-/***************Main**************/
-/* line 312, ../sass/style.scss */
 .main {
   padding: 1rem 0.5rem;
   text-align: center; }
-  /* line 316, ../sass/style.scss */
-  .main .hero-img {
+  .main__background-img {
     display: inline-block;
     width: 100%; }
-  /* line 321, ../sass/style.scss */
-  .main .heading1 {
+  .main__heading1 {
     font-size: 2.5rem;
     margin-top: 1.6rem; }
-  /* line 326, ../sass/style.scss */
-  .main .main-paragraph {
+  .main__paragraph {
     margin: 0.6rem 0.7rem 2.3rem 0.7rem;
     color: var(--Medium-Gray); }
-  /* line 331, ../sass/style.scss */
-  .main .learn-more {
+  .main__btn--learn-more {
     color: var(--Almost-White);
     background: var(--Almost-Black);
     padding: 0.85rem 1.2rem;
     border-radius: 1rem;
     font-weight: bold;
     border: 0.1rem solid var(--Almost-Black); }
-  /* line 340, ../sass/style.scss */
-  .main .learn-more:focus-visible {
-    border-radius: 1rem; }
-  /* line 345, ../sass/style.scss */
-  .main .register-btn,
-  .main .log-in-btn,
-  .main .learn-more:hover,
-  .main .learn-more:focus-visible {
-    background: var(--Almost-White);
-    color: var(--Almost-Black); }
-  /* line 353, ../sass/style.scss */
-  .main .base-icons {
+    .main__btn--learn-more:focus-visible {
+      border-radius: 1rem;
+      background: var(--Almost-White);
+      color: var(--Almost-Black); }
+    .main__btn--learn-more:hover {
+      background: var(--Almost-White);
+      color: var(--Almost-Black); }
+  .main__icons-container {
     margin-top: 3.5rem;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -335,42 +270,29 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center; }
-    /* line 360, ../sass/style.scss */
-    .main .base-icons .img-container {
-      -webkit-box-flex: 1;
-          -ms-flex: 1;
-              flex: 1;
-      /* adjusting the img sizes to ensure pixel perfect design */ }
-      /* line 364, ../sass/style.scss */
-      .main .base-icons .img-container .img-container:first-child img {
-        width: 85%; }
-      /* line 368, ../sass/style.scss */
-      .main .base-icons .img-container .img-container:nth-child(2) img {
-        width: 60%; }
-      /* line 372, ../sass/style.scss */
-      .main .base-icons .img-container .img-container:nth-child(3) img {
-        width: 70%; }
-      /* line 376, ../sass/style.scss */
-      .main .base-icons .img-container .img-container:nth-child(4) img {
-        width: 70%; }
+  .main__each-icons-wrapper {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    /* adjusting the img sizes to ensure pixel perfect design */ }
+    .main__each-icons-wrapper:first-child img {
+      width: 85%; }
+    .main__each-icons-wrapper:nth-child(2) img {
+      width: 60%; }
+    .main__each-icons-wrapper:nth-child(3) img {
+      width: 70%; }
+    .main__each-icons-wrapper:nth-child(4) img {
+      width: 70%; }
 
-/* footer */
-/* line 384, ../sass/style.scss */
 .attribution {
   text-align: center;
   margin: 2rem 1rem 0 0;
   padding: 0 0.5rem; }
-  /* line 390, ../sass/style.scss */
-  .attribution .attribution a {
-    color: #3e52a3; }
-  /* line 394, ../sass/style.scss */
-  .attribution .attribution a:hover,
-  .attribution .attribution a:focus-visible {
-    color: var(--Almost-Black); }
-  /* line 399, ../sass/style.scss */
-  .attribution .attribution p {
+  .attribution__p {
     margin: 0.3rem 0;
     font-size: 0.7rem; }
+  .attribution__btn {
+    color: #3e52a3; }
 
 /* animating the stroke */
 @-webkit-keyframes svg-animation {
@@ -403,6 +325,8 @@ body {
     opacity: 1;
     -webkit-transform: translateY(0);
             transform: translateY(0); } }
-/* media Queries */
-@media (min-width: 600px) {
-  /* d */ }
+.noScript__p {
+  color: --Almost-Black;
+  font-size: 1rem;
+  text-align: center;
+  padding: 0.5rem 2rem; }
