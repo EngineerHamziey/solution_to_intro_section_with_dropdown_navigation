@@ -13,7 +13,7 @@
 
 <body>
   <!-- so that site can look good on devices without javaScript enabled, I shall have a class name noScript__open, that will be applied to some element, then javaScript will be used to remove it so that site be behave normal for user that enabled javascript -->
-  <nav class="nav nav--open">
+  <nav class="nav">
   <!-- <nav class="nav"> -->
     <a href="#main-content" class="btn nav__btn nav__btn--skip-to-main-content">Skip To Main Content</a>
     <div aria-hidden="true" class="nav__logo">
@@ -55,20 +55,18 @@
           btn
           nav-links__li__btn 
           nav-links__li__btn--features-btn 
-          expandables
+          btn--expandables
         ">
           Features
           <img 
           aria-hidden="true" 
           class="
-          nav-links__li__btn__arrowDown
-          nav-links__li__btn__arrowDown--open" 
+          nav-links__li__btn__arrowDown" 
           src="./images/icon-arrow-down.svg" 
           alt="">
         </button>
         <ul class="
         nav__miniMenu
-        nav__miniMenu--open
         nav__miniMenu--features">
           <li class="nav__miniMenu__li nav__miniMenu__li-features">
             <img  aria-hidden="true" src="./images/icon-todo.svg" alt="">
@@ -88,27 +86,29 @@
           </li>
         </ul>
       </li>
-      <li class="nav-links__li nav-links__li--miniMenu nav-links__li--miniMenu--company">
+      <li 
+        class="
+        nav-links__li 
+        nav-links__li--miniMenu 
+        nav-links__li--miniMenu--company">
         <button 
         aria-expanded="true" 
         class="
           btn
           nav-links__li__btn 
           nav-links__li__btn--company-btn 
-          expandables">
+          btn--expandables">
           Company
           <!-- if you don't add empty alt or aria-hidden: true,  chromeVox, makes up for you mistake by referring to the image using its image file name, for example it calls the image below "icon-arrow-down" -->
           <img 
           aria-hidden="true" 
           class="
-          nav-links__li__btn__arrowDown
-          nav-links__li__btn__arrowDown--open" 
+          nav-links__li__btn__arrowDown" 
           src="./images/icon-arrow-down.svg" 
           alt="">
         </button>
         <ul class="
-          nav__miniMenu 
-          nav__miniMenu--open
+          nav__miniMenu
           nav__miniMenu--company">
           <li class="nav__miniMenu__li">
             <a class="btn" href="#">
@@ -204,7 +204,7 @@
   </footer>
 
 
-  <!-- <script src="./js/app.js"></script> -->
+  <script src="./js/script.js"></script>
 </body>
 
 </html>

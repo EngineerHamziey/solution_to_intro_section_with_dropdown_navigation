@@ -51,7 +51,7 @@ a {
 }
 
 .btn {
-  transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in-out;
   
   &:hover {
     border-color:  var(--Almost-Black);
@@ -168,10 +168,30 @@ img {
 
     &__li {
       // dk 
+      // display: none;
 
-      &--miniMenu--company {
-        // display: none;
-        margin-top: 1rem;
+      &--miniMenu {
+        
+        &--open {
+
+          .nav-links__li__btn__arrowDown{
+            content: url(../images/icon-arrow-up.svg);
+          }
+
+          .nav__miniMenu {
+          clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+          -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+          transform: none;
+          // background: var(--Almost-White);
+          opacity: 1;
+
+        }
+       }
+
+        &--company {
+          // display: none;
+          margin-top: 1rem;
+        }
       }
 
       &__btn {
@@ -210,14 +230,9 @@ img {
         }
 
         &__arrowDown{
-          transition: all 0.6s ease;
           display: inline-block;
           margin-left: 0.6rem;
           transition: all 0.5s ease-in-out;
-          
-          &--open {
-            content: url(../images/icon-arrow-up.svg);
-          }
         }
 
         &--logIn-btn {
@@ -239,34 +254,18 @@ img {
   }
 
   &__miniMenu {
-    // display: none;
-    // display: block;
-    // display: none;
     list-style:none;
+    // display: none;
     margin: 1.5rem 0 0.4rem 2rem;
     color: var(--Medium-Gray);
-    // background: red; 
-    // animation: 0.3s ease-in dropItem;
     transition: all 0.5s ease-in-out;
-    // opacity: 0.3;
-    /* display: none; */
-    transform: translateY(-5rem);
+    transform: translateY(-8rem);
     clip-path: polygon(0% 100%, 0% 0, 100% 0, 100% 100%);
     -webkit-clip-path: polygon(100% 100%, 100% 0, 100% 0, 100% 100%); 
 
-    &--open {
-      clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
-      -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
-      transform: none;
-      background: var(--Almost-White);
-      // display: block;
-      // animation: 0.3s ease-in-out dropItem;
-      opacity: 1;
-      // transform: translateY(0);
-    }
-
     a {
       color: var(--Medium-Gray);
+    pointer-events: none;
 
       &:hover {
       color: var(--Almost-Black);}
