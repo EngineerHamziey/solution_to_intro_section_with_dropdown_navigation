@@ -30,23 +30,23 @@ featuresBtn.addEventListener("click", toggleMiniMenu);
 //   });
 // }
 
-// svg animation.....for "snap"
-let animDelay = 0;
-let animDuration = 4;
-// svg anime 
-allPath.forEach(function (eachPath, itsIndex) {
-  const eachPathLength = Math.floor(eachPath.getTotalLength()).toString();;
-  // eachPathLength = eachPathLength
+// // svg animation.....for "snap"
+// let animDelay = 0;
+// let animDuration = 4;
+// // svg anime 
+// allPath.forEach(function (eachPath, itsIndex) {
+//   const eachPathLength = Math.floor(eachPath.getTotalLength()).toString();;
+//   // eachPathLength = eachPathLength
 
-  eachPath.style.strokeDasharray = `${eachPathLength}px`;
-  eachPath.style.strokeDashoffset = `${eachPathLength}px`;
-  eachPath.style.animationDuration = `${animDuration}s`;
-  eachPath.style.animationDelay = `${animDelay}s`;
-  animDelay += 0.15;
-  animDuration -= 0.2;// this is to make the animation speed up towards the end
-});
-//the animDelay here will be the final value from the forEach loop
-pathsParent.style.animationDelay = `${animDelay}s`;
+//   eachPath.style.strokeDasharray = `${eachPathLength}px`;
+//   eachPath.style.strokeDashoffset = `${eachPathLength}px`;
+//   eachPath.style.animationDuration = `${animDuration}s`;
+//   eachPath.style.animationDelay = `${animDelay}s`;
+//   animDelay += 0.15;
+//   animDuration -= 0.2;// this is to make the animation speed up towards the end
+// });
+// //the animDelay here will be the final value from the forEach loop
+// pathsParent.style.animationDelay = `${animDelay}s`;
 // SVG anime ends
 
 // console.log(arrowDown);
