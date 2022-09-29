@@ -1,282 +1,111 @@
-/* take care of people who disable JS */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-  
-:root {
-  --Almost-White: hsl(0, 0%, 98%);
-  /* --Almost-White: hsl(0, 0%, 8%); */
-  --Medium-Gray: hsl(0, 0%, 41%);
-  --Almost-Black: hsl(0, 0%, 8%);
-  /* --Almost-Black: hsl(0, 0%, 98%); */
-  --my-parag-size: 1.125rem; /*i.e 18px*/
-  // display: none;
-}
+@import "mobile";
 
-@mixin some-common-btn-styles {
-  background: var(--Almost-White);
-  color: var(--Almost-Black);
-}
-  
-body {
-  font-family: sans-serif;
-  line-height: 1.5;
-  background: var(--Almost-White);
-  color: var(--Almost-Black);
-}
+@media (min-width: 800px) {
+  // body {
+  //   // display: none;
+  // }
 
-// globals / utillities
-ul {
-  list-style-type: none;
-}
+  .nav {
 
-/*
-I chose font-size: 0 over display none,
-because display:none breaks my design
- */
- 
-.visually-hidden {
-  font-size: 0;
-}
+    // hamburger
+    &__btn {
 
-p {
-  font-size: var(--my-parag-size);
-}
-
-a {
-  text-decoration: none;
-}
-
-.btn {
-  transition: all 0.3s ease-in-out;
-  
-  &:hover {
-    border-color:  var(--Almost-Black);
-    color: var(--Almost-Black);
-  }
-  
-  &:focus-visible {
-    outline: dotted 0.3rem var(--Almost-Black);
-    color: var(--Almost-Black);
-  }
-}
-
-img {
-  pointer-events: none;
-}
-// globals / utillities ends
-
-.nav {
-  display: flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-
-  &__logo {
-    min-height: 2.75rem;
-    padding: 0.8rem 0 0 0.5rem;
-  }
-
-  &__svg {
-    /* applying the fill globally to all */
-    fill: transparent;
-    animation: fill-color 4s ease forwards;
-  }
-
-  &__path {
-    stroke: var(--Almost-Black);
-    animation-name: svg-animation;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease;
-    /* the animation duration and delay will be set for each path in my JS */
-  }
-
-  &__btn {
-
-    &--menu {      
-      display: block;
-      margin: auto 0 auto auto;
-      /* recommended by wcag is 44 x 44px equivalent to 2.75rem*/
-      width: 2.75rem;
-      height: 2.75rem;
-      background-color: transparent;
-      border-radius: 0.2rem;
-      border: none;
-      z-index: 2;
-      // transition: all 0.5s ease;
-      // transition-property: ;
-
-    &--hamburger {
-      display: block;
-      width: 2rem;
-      height: 0.15rem;
-      background: var(--Almost-Black);
-      border-radius: 0.1rem;
-      transition: all 0.5s ease-in-out;
-      pointer-events: none;
-      margin: auto;
-
-      &:nth-child(2) {
-        margin: 0.3rem auto;
+      &--menu {     
+        display: none;
       }
     }
-  }
 
-    &--skip-to-main-content {
-      // display: block;
-      // width: fit-content;
-      position: absolute;
-      left: 1rem;
-      top: 1rem;
-      background: #f4f4f4;
-      padding: 0.3rem 1rem;
-      border-radius: 20%;
-      height: 2.75rem;
-      font-size: 1.4rem;
-      transition: all 0.5s ease;
-      // opacity 0 makes chrome vox call it "button" without saying the content of the button tag which is "skip to main content"
-      // opacity: 0;
-      transform: translate(2rem,-10rem);
+    &-links {
+      display: flex; 
+      align-items: center;
+      min-height: unset;
+      width: 100%;
+      position: unset;//returns it to default
+      right: unset;
+      top: unset;
+      padding: 0 1rem;
+      clip-path: none;
+      -webkit-clip-path: none;
+      opacity: 1;
+      pointer-events: unset;//returns it to default
 
-      &:focus-visible {
-        transform: translate(0, 0);
-        color: var(--Almost-Black);
-      }
-    }
-  }
+      &__li {
 
-  &-links {
-    // display: none; //links
-    list-style: none;
-    /* padding-top: 4rem; */
-    /* height: max(40rem, 100vh); */
-    min-height: 100vh;
-    min-width: 60%;
-    background: var(--Almost-White);
-    position: fixed;
-    // position: absolute;
-    right: 0;
-    top:0;
-    transition: all 0.6s ease;
-    // background: red; 
-    clip-path: polygon(100% 100%, 100% 0, 100% 0, 100% 100%);
-    -webkit-clip-path: polygon(100% 100%, 100% 0, 100% 0, 100% 100%);
-    pointer-events: none;
-    opacity: 0;
+        &--logIn {
+          margin: 0 1rem 0 auto;
+        }
 
-    &__li {
-      // dk 
-      // display: none;
+        &--miniMenu {
+          
+          &--open {
 
-      &--miniMenu {
-        
-        &--open {
+            .nav__miniMenu {
+            background: var(--Almost-White);
+          }
+        }
 
-          .nav-links__li__btn__arrowDown{
-            content: url(../images/icon-arrow-up.svg);
+          &--company {
+            margin: 0;
+          }
+        }
+
+        &__btn {
+          margin: 0;
+          transform: none;
+
+          &--register-btn,
+          &--logIn-btn {
+            /* inherited from  .learn-more:hover*/
+            width: unset;
           }
 
-          .nav__miniMenu {
-          clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
-          -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
-          transform: none;
-          // background: var(--Almost-White);
-          opacity: 1;
-
-        }
-       }
-
-        &--company {
-          // display: none;
-          margin-top: 1rem;
-        }
-      }
-
-      &__btn {
-        border: none;
-        background: var(--Almost-white);
-        transition: all 1s ease 0.1s; 
-        // color: var(--Almost-Black);
-        transform: translate(60vw) rotate(-100deg) scale(4);
-        // transform: scale(1.4) rotate(100deg) translate(0.3rem, 0.2rem);
-
-        // check this later
-        display: inline-block;
-        color: var(--Medium-Gray);
-        border-color: var(--Medium-Gray);
-        margin: 0.2em auto auto 0.3rem;
-        padding: 0.5rem 1rem;
-        // display: none;
-
-        &--register-btn,
-        &--logIn-btn {
-          /* inherited from  .learn-more:hover*/
-          width: calc(100% - 2rem);
-          text-align: center;
-          padding: 0.5rem 1rem;
-          border-radius: 1rem;
-          /* font-weight: bold; */
-          border: 0.1rem solid var(--Medium-Gray);
-          /* 2rems already subtracted from the width */
-          margin: 0 1rem;
-          @include some-common-btn-styles();
+          &--register-btn{
+            padding: 0.4rem 2rem;
+            
+            &:hover {
+            // border-color: var(--Almost-Black);
+            }
+          }
 
           &:hover {
-            // to prevent it from scalling up
-            transform: scale(1);
+            // color: var(--Almost-Black);
+            transform: none;
           }
-        }
-
-        &__arrowDown{
-          display: inline-block;
-          margin-left: 0.6rem;
-          transition: all 0.5s ease-in-out;
-        }
-
-        &--logIn-btn {
-          border-color: transparent;
-          margin-top: 1rem;
-          margin-bottom: 0.3rem;
-        }
-
-        &--register-btn:hover {
-          border-color: var(--Almost-Black);
-        }
-
-        &:hover {
-          color: var(--Almost-Black);
-          transform: scale(1.2);
         }
       }
     }
-  }
 
   &__miniMenu {
-    list-style:none;
-    // display: none;
-    margin: 1.5rem 0 0.4rem 2rem;
-    color: var(--Medium-Gray);
-    transition: all 0.5s ease-in-out;
-    transform: translateY(-8rem);
-    clip-path: polygon(0% 100%, 0% 0, 100% 0, 100% 100%);
-    -webkit-clip-path: polygon(100% 100%, 100% 0, 100% 0, 100% 100%); 
+    
+        position: absolute;
+        // transform: translateY(-100%);
+        // top: 100%;
+        // bottom: -100%;
+
+    // // display: none;
+    // margin: 1.5rem 0 0.4rem 2rem;
+    // color: var(--Medium-Gray);
+    // transition: all 0.5s ease-in-out;
+    // transform: translateY(-8rem);
+    // clip-path: polygon(0% 100%, 0% 0, 100% 0, 100% 100%);
+    // -webkit-clip-path: polygon(100% 100%, 100% 0, 100% 0, 100% 100%); 
 
     a {
-      color: var(--Medium-Gray);
-    pointer-events: none;
+      // color: var(--Medium-Gray);
+    // pointer-events: none;
 
       &:hover {
-      color: var(--Almost-Black);}
+      // color: var(--Almost-Black);
+      }
     }
 
     &__li {
-      margin-top: 1rem;
+      // margin-top: 1rem;
       
       img {
-        display: inline-block;
-        margin-right: 0.5rem;
+        // display: inline-block;
+        // margin-right: 0.5rem;
       }
 
       // &-features {
@@ -293,174 +122,68 @@ img {
     // display: none;
 
     .nav__btn--menu {
-      background: var(--Almost-White);
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      transform: translate(0.1rem, 0.1rem);
+      // background: var(--Almost-White);
+      // position: fixed;
+      // top: 1rem;
+      // right: 1rem;
+      // transform: translate(0.1rem, 0.1rem);
       
       /* change the hamburger to X */
       &--hamburger:first-child {
-        transform: rotate(-100deg) translateY(-63px);
-        color: red;
-        opacity: 0;
+        // transform: rotate(-100deg) translateY(-63px);
+        // color: red;
+        // opacity: 0;
       }
       &--hamburger:nth-child(2) {
-        transform: rotate(-45deg);
+        // transform: rotate(-45deg);
       }
       &--hamburger:nth-child(3) {
-        transform: rotate(45deg) translate(-0.4rem, -0.3rem);
+        // transform: rotate(45deg) translate(-0.4rem, -0.3rem);
       }
     }
 
     .nav-links {//i.e (nav--open .nav-links)
-      clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
-      -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
-      pointer-events: unset;//returns it to default
-      // padding: 4rem 0 1.5rem 0;
-      padding: 4rem 0 0 0;
-      opacity: 1;
+      // clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+      // -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+      // pointer-events: unset;//returns it to default
+      // // padding: 4rem 0 1.5rem 0;
+      padding: 0;
+      // opacity: 1;
 
       &__li__btn {
-        transform: none;
+        // transform: none;
       }
     }
   }
-}
-
-.main {
-  padding: 1rem 0.5rem;
-  text-align: center;
-  
-  &__background-img {
-    display: inline-block;
-    width: 100%;
   }
 
-  // &__content {
-  //   dk;
-  // }
-
-  &__heading1 {
-    font-size: 2.5rem;
-    margin-top: 1.6rem;
-  }
-
-  &__paragraph {
-    margin: 0.6rem 0.7rem 2.3rem 0.7rem;
-    color: var(--Medium-Gray);
-  }
-
-  &__btn--learn-more {
-    // display: none;
-    color: var(--Almost-White);
-    background: var(--Almost-Black);
-    padding: 0.85rem 1.2rem;
-    border-radius: 1rem;
-    font-weight: bold;
-    border: 0.1rem solid var(--Almost-Black);
-
-    &:focus-visible {
-      border-radius: 1rem;
-      @include some-common-btn-styles();
-    }
-
-    &:hover {
-      @include some-common-btn-styles();
-    }
-  }
-
-  &__icons-container {
-    margin-top: 3.5rem;
+  .main {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-  }
+    flex-direction: row-reverse;
+    padding: 5rem;
 
-  &__each-icons-wrapper {
-    flex: 1;
-
-    /* adjusting the img sizes to ensure pixel perfect design */
-    &:first-child img {
-      width: 85%;
+    &__background-img {
+      content: url(../images/image-hero-desktop.png);
+      // flex: 1;
+      width: 50%;
+      display: block;
     }
 
-    &:nth-child(2) img {
-      width: 60%;
+    &__wrap {
+      padding: 2rem;
+      // display: block;
+      // width: 50%;
+      // flex: 2;
     }
 
-    &:nth-child(3) img {
-      width: 70%;
+    &__content {
+      padding: 0;
     }
 
-    &:nth-child(4) img {
-      width: 70%;
-    }
-  }
-}
-
-.attribution {
-  text-align: center;
-  margin: 2rem 1rem 0 0;
-  padding: 0 0.5rem;
-
-  &__p {
-    margin: 0.3rem 0;
-    font-size: 0.7rem;
-  }
-
-  &__btn {
-    color: hsl(228, 45%, 44%);
-  }
-}
-
-
-/* animating the stroke */
-@keyframes svg-animation {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes fill-color {
-      
-  to {
-    fill: var(--Almost-Black);
-  }
-}
-  
-@keyframes dropItem {
-  from {
-    opacity: 0;
-    transform: translateY(-5rem);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-
-.noScript {
-
-  &__p {
-    color: --Almost-Black;
-    font-size: 1rem;
-    text-align: center;
-    padding: 0.5rem 2rem;
-  }
-
-  // mobile noScript__open
-  &__open {
-
-  }
-
-  // desktop noScript__open
-  @media (min-width: 600px) {
-    &__open {
-
+    &__icons-container {
+      padding: 1rem;
+      margin: auto 0 1rem 0;
+      // margin-top: auto;
     }
   }
 }

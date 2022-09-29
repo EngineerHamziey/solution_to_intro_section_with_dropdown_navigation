@@ -13,9 +13,10 @@
 
 <body>
   <!-- so that site can look good on devices without javaScript enabled, I shall have a class name noScript__open, that will be applied to some element, then javaScript will be used to remove it so that site be behave normal for user that enabled javascript -->
-  <nav class="nav">
-  <!-- <nav class="nav"> -->
-    <a href="#main-content" class="btn nav__btn nav__btn--skip-to-main-content">Skip To Main Content</a>
+  <nav class="nav">  <!-- <nav class="nav"> -->
+    <a href="#main-content" class="btn nav__btn nav__btn--skip-to-main-content">
+      Skip To Main Content
+    </a>
     <div aria-hidden="true" class="nav__logo">
       <svg class="nav__svg" width="68.24707" height="21.826172">
         <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-329.27457,-147.88255)">
@@ -40,7 +41,14 @@
     <!-- I put false as default, as the hamburger menu is collapsed by default 
       and
     the text "Menu" in btn is on there for screen readers, so font-size: 0; removes it and color: transparent; to remove any traces of it during page reload/transition   -->
-    <button aria-label="Menu" class="btn nav__btn nav__btn--menu btn--expandables visually-hidden" aria-expanded="true">
+    <button 
+      aria-label="Menu" 
+      aria-expanded="true"
+      class="
+        btn nav__btn
+        nav__btn--menu 
+        btn--expandables visually-hidden
+    ">
       <span class="nav__btn--menu--hamburger" aria-hidden="true"></span>
       <span class="nav__btn--menu--hamburger" aria-hidden="true"></span>
       <span class="nav__btn--menu--hamburger" aria-hidden="true"></span>
@@ -48,14 +56,18 @@
     </button>
     <!-- I'll change aria-expanded to using javaScript, it's true because of those who disables JS on their browsers, the menu will be collapsed by default on their browser -->
     <ul class="nav-links ">
-      <li class="nav-links__li nav-links__li--miniMenu nav-links__li--miniMenu--features">
-        <button 
-        aria-expanded="true" 
+      <li 
         class="
-          btn
-          nav-links__li__btn 
-          nav-links__li__btn--features-btn 
-          btn--expandables
+          nav-links__li nav-links__li--miniMenu 
+          nav-links__li--miniMenu--features
+        ">
+        <button 
+          aria-expanded="true" 
+          class="
+            btn
+            nav-links__li__btn 
+            nav-links__li__btn--features-btn 
+            btn--expandables
         ">
           Features
           <img 
@@ -139,7 +151,7 @@
         About <span class="visually-hidden">us</span>
       </a>
     </li>
-    <li class="nav-links__li">
+    <li class="nav-links__li nav-links__li--logIn">
       <a class="btn nav-links__li__btn nav-links__li__btn--logIn-btn" href="#">Login</a>
     </li>
     <li class="nav-links__li">
@@ -155,33 +167,34 @@
   </noscript>
 
   <main id="main" class="main">
-    <img class="main__background-img" src="./images/image-hero-mobile.png" alt="" aria-hidden="true">
-    <!-- </div> -->
-    <div class="main__content">
-      <h1 class="main__heading1">Make remote work</h1>
-      <p class="main__paragraph">
-        Get your team in sync, no matter your location. Streamline processes,
-        create team rituals, and watch productivity soar.
-      </p>
+    <img class="main__background-img" src="./images/image-hero-mobile.png" alt="" role="presentation">
+    
+    <div class="main__wrap">
+      <div class="main__content">
+        <h1 class="main__heading1">Make remote work</h1>
+        <p class="main__paragraph">
+          Get your team in sync, no matter your location. Streamline processes,
+          create team rituals, and watch productivity soar.
+        </p>
 
-      <a class="btn main__btn--learn-more" href="https://www.linkedin.com/in/hamzat-lawal-a88404239">Learn more<span class="visually-hidden">about our services</span> </a>
-    </div>
-    <div aria-hidden="true" class="main__icons-container">
-      <div class="main__each-icons-wrapper">
-        <img src="./images/client-databiz.svg" alt="">
+        <a class="btn main__btn--learn-more" href="https://www.linkedin.com/in/hamzat-lawal-a88404239">Learn more<span class="visually-hidden">about our services</span> </a>
       </div>
-      <div class="main__each-icons-wrapper">
-        <img src="./images/client-audiophile.svg" alt="">
-      </div>
-      <div class="main__each-icons-wrapper">
-        <img src="./images/client-meet.svg" alt="">
-      </div>
-      <div class="main__each-icons-wrapper">
-        <img src="./images/client-maker.svg" alt="">
+      <div aria-hidden="true" class="main__icons-container">
+        <div class="main__each-icons-wrapper">
+          <img src="./images/client-databiz.svg" alt="">
+        </div>
+        <div class="main__each-icons-wrapper">
+          <img src="./images/client-audiophile.svg" alt="">
+        </div>
+        <div class="main__each-icons-wrapper">
+          <img src="./images/client-meet.svg" alt="">
+        </div>
+        <div class="main__each-icons-wrapper">
+          <img src="./images/client-maker.svg" alt="">
+        </div>
       </div>
     </div>
   </main>
-
   <footer class="attribution">
     <p class="attribution__p"> 
       <!-- I hide the coded by, so that it won't repeat it, I also put it in the link so that users using screen readers and tabing through will have full understanding -->

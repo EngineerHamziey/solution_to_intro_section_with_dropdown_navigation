@@ -2,8 +2,8 @@ const allPath = document.querySelectorAll(".nav__path"),
   pathsParent = document.querySelector(".nav__svg"),
   navMenu = document.querySelector(".nav"),
   navBtn = document.querySelector(".nav__btn--menu"),
-  featuresMenu = document.querySelector(".nav__miniMenu--features"),
-  companyMenu = document.querySelector(".nav__miniMenu--company"),
+  // featuresMenu = document.querySelector(".nav__miniMenu--features"),
+  // companyMenu = document.querySelector(".nav__miniMenu--company"),
   featuresBtn = document.querySelector(".nav-links__li__btn--features-btn"),
   companyBtn = document.querySelector(".nav-links__li__btn--company-btn"),
   allExpandables = document.querySelectorAll(".btn--expandables"),
@@ -68,7 +68,17 @@ function openHamburgerMenu() {
 function toggleMiniMenu(event) {
   //to determine which of the two btn is pressed
   const currentBtn = event.target;
-  currentBtn.parentElement.classList.toggle("nav-links__li--miniMenu--open");
+  const currentMenu = currentBtn.parentElement;
+  // if (!currentMenu.classList.contains("nav-links__li--miniMenu--open")) {
+  //   // add display block to current miniMenu
+  //   currentMiniMenu = currentMenu.lastElementChild;//the <ul> is the last child
+  //   // currentMiniMenu.style.display = "block";
+  //   console.log(currentMiniMenu);
+  //   // currentMenu.style.display = "none" ;
+  // }
+  // setTimeout(() => {
+    currentMenu.classList.toggle("nav-links__li--miniMenu--open");
+  // },5);
   // console.log("open added to class list");
   
   currentBtn.classList.toggle("open");
