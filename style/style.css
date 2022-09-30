@@ -6,12 +6,11 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
+/*i.e 18px*/
 :root {
   --Almost-White: hsl(0, 0%, 98%);
   --Medium-Gray: hsl(0, 0%, 41%);
-  --Almost-Black: hsl(0, 0%, 8%);
-  --my-parag-size: 1.125rem;
-  /*i.e 18px*/ }
+  --Almost-Black: hsl(0, 0%, 8%); }
 
 body {
   font-family: 'Epilogue', sans-serif;
@@ -23,26 +22,27 @@ ul {
   list-style-type: none; }
 
 /*
-I chose font-size: 0 over display none,
-because display:none breaks my design
- */
+  I chose font-size: 0 over display none,
+  because display:none breaks my design
+*/
 .visually-hidden {
   font-size: 0; }
 
 p {
-  font-size: var(--my-parag-size); }
+  font-size: 1.125rem; }
 
 a {
   text-decoration: none; }
 
-.btn:not(.visually-hidden, .nav__btn--skip-to-main-content) {
-  font-size: 1rem;
+.btn {
   -webkit-transition: all 0.8s ease-in-out;
   transition: all 0.8s ease-in-out; }
-  .btn:not(.visually-hidden, .nav__btn--skip-to-main-content):hover {
+  .btn:not(.visually-hidden, .nav__btn--skip-to-main-content) {
+    font-size: 0.8rem; }
+  .btn:hover {
     border-color: var(--Almost-Black);
     color: var(--Almost-Black); }
-  .btn:not(.visually-hidden, .nav__btn--skip-to-main-content):focus-visible {
+  .btn:focus-visible {
     outline: dotted 0.3rem var(--Almost-Black);
     color: var(--Almost-Black); }
 
@@ -160,7 +160,7 @@ img {
         text-align: center;
         padding: 0.5rem 1rem;
         border-radius: 1rem;
-        border: 0.1rem solid var(--Medium-Gray);
+        border: 0.14rem solid var(--Medium-Gray);
         /* 2rems already subtracted from the width */
         margin: 0 1rem; }
         .nav-links__li__btn--register-btn:hover, .nav-links__li__btn--logIn-btn:hover {
@@ -174,11 +174,14 @@ img {
         -webkit-transition: all 0.5s ease-in-out;
         transition: all 0.5s ease-in-out; }
       .nav-links__li__btn--logIn-btn {
+        padding: 0.5rem 1.2rem;
         margin-top: 1rem;
         margin-bottom: 0.3rem;
         border-color: transparent; }
         .nav-links__li__btn--logIn-btn:hover {
           border-color: transparent; }
+        .nav-links__li__btn--logIn-btn:focus-visible {
+          border-color: var(--Medium-Gray); }
       .nav-links__li__btn--register-btn:hover {
         border-color: var(--Almost-Black); }
       .nav-links__li__btn:hover {
@@ -233,6 +236,13 @@ img {
               transform: none; }
 
 .main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
   padding: 1rem 0.5rem;
   text-align: center; }
   .main__background-img {
@@ -306,6 +316,10 @@ img {
   to {
     fill: var(--Almost-Black); } }
 @media (min-width: 800px) {
+  .btn {
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out; }
+
   .nav__btn--menu {
     display: none; }
   .nav-links {
@@ -320,7 +334,7 @@ img {
     position: unset;
     right: unset;
     top: unset;
-    padding: 0 1rem;
+    padding: 0 1rem 0 2rem;
     clip-path: none;
     -webkit-clip-path: none;
     opacity: 1;
@@ -328,7 +342,13 @@ img {
     .nav-links__li--logIn {
       margin: 0 1rem 0 auto; }
     .nav-links__li--miniMenu--open .nav__miniMenu {
-      background: var(--Almost-White); }
+      background: var(--Almost-White);
+      background: red;
+      margin: 0.5rem 0 0 -2rem;
+      border-radius: 0.5rem;
+      padding: 0 1rem 1rem 1rem; }
+      .nav-links__li--miniMenu--open .nav__miniMenu--company {
+        margin: 0.5rem 0 0 1rem; }
     .nav-links__li--miniMenu--company {
       margin: 0; }
     .nav-links__li__btn {
@@ -351,22 +371,34 @@ img {
     padding: 0; }
 
   .main {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
-    padding: 5rem; }
+    text-align: unset;
+    padding: 2.5rem 3rem 0 5rem;
+    display: grid;
+    grid-template-areas: "text img";
+    grid-gap: 6rem; }
+    .main__img-wrap {
+      width: 85%;
+      grid-area: img; }
     .main__background-img {
       content: url(../images/image-hero-desktop.png);
-      width: 50%;
       display: block; }
+    .main__paragraph {
+      margin: 0.6rem 0.7rem 2.3rem 0;
+      color: var(--Medium-Gray); }
     .main__wrap {
-      padding: 2rem; }
+      padding: 2rem 2rem 0 4rem;
+      margin: 0 auto 0 0;
+      max-width: 60%;
+      grid-area: text;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column; }
     .main__content {
       padding: 0; }
     .main__icons-container {
-      padding: 1rem;
-      margin: auto 0 1rem 0; } }
+      padding: 1rem 1rem 0 1rem;
+      margin: auto 0 0 0; } }

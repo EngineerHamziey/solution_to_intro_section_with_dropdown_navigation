@@ -8,17 +8,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+$my-parag-size: 1.125rem; /*i.e 18px*/
+// $max-desktop-width: 90rem; /*i.e 1440px*/
   
 :root {
   --Almost-White: hsl(0, 0%, 98%);
   --Medium-Gray: hsl(0, 0%, 41%);
   --Almost-Black: hsl(0, 0%, 8%);
-  --my-parag-size: 1.125rem; /*i.e 18px*/
-  // display: none;
-  // dark mode
-  // --Almost-White: #333;
-  // --Almost-Black: #fff;
-  // --Medium-Gray: rgb(18, 32, 37);
 }
 
 @mixin some-common-btn-styles {
@@ -27,7 +24,6 @@
 }
   
 body {
-  // display: none;
   font-family: 'Epilogue', sans-serif;
   line-height: 1.5;
   background: var(--Almost-White);
@@ -40,25 +36,28 @@ ul {
 }
 
 /*
-I chose font-size: 0 over display none,
-because display:none breaks my design
- */
+  I chose font-size: 0 over display none,
+  because display:none breaks my design
+*/
  
 .visually-hidden {
   font-size: 0;
 }
 
 p {
-  font-size: var(--my-parag-size);
+  font-size: $my-parag-size;
 }
 
 a {
   text-decoration: none;
 }
 
-.btn:not(.visually-hidden, .nav__btn--skip-to-main-content) {
-  font-size: 1rem;
+.btn {
   transition: all 0.8s ease-in-out;
+  
+  &:not(.visually-hidden, .nav__btn--skip-to-main-content) {
+    font-size: 0.8rem;
+  }
   
   &:hover {
     border-color:  var(--Almost-Black);
@@ -74,6 +73,11 @@ a {
 img {
   pointer-events: none;
 }
+
+// nav, main, footer {
+//   max-width: $max-desktop-width;
+//   // display: none;
+// }
 // globals / utillities ends
 
 .nav {
@@ -226,7 +230,7 @@ img {
           text-align: center;
           padding: 0.5rem 1rem;
           border-radius: 1rem;
-          border: 0.1rem solid var(--Medium-Gray);
+          border: 0.14rem solid var(--Medium-Gray);
           /* 2rems already subtracted from the width */
           margin: 0 1rem;
 
@@ -244,12 +248,16 @@ img {
         }
 
         &--logIn-btn {
+          padding: 0.5rem 1.2rem;
           margin-top: 1rem;
           margin-bottom: 0.3rem;
           border-color: transparent;
 
           &:hover {
             border-color: transparent;
+          }
+          &:focus-visible {
+            border-color: var(--Medium-Gray);
           }
         }
 
@@ -345,6 +353,8 @@ img {
 }
 
 .main {
+  display: flex;
+  flex-direction: column-reverse;
   padding: 1rem 0.5rem;
   text-align: center;
   

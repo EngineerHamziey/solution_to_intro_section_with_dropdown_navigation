@@ -3,8 +3,15 @@
 
 @media (min-width: 800px) {
   // body {
-  //   // display: none;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
   // }
+
+  .btn {
+    transition: all 0.4s ease-in-out;
+  }
 
   .nav {
 
@@ -24,7 +31,7 @@
       position: unset;//returns it to default
       right: unset;
       top: unset;
-      padding: 0 1rem;
+      padding: 0 1rem 0 2rem;
       clip-path: none;
       -webkit-clip-path: none;
       opacity: 1;
@@ -41,9 +48,18 @@
           &--open {
 
             .nav__miniMenu {
-            background: var(--Almost-White);
+              background: var(--Almost-White);
+              background: red;
+              margin: 0.5rem 0 0 -2rem;
+              border-radius: 0.5rem;
+              padding: 0 1rem 1rem 1rem;
+
+              &--company {
+                margin: 0.5rem 0 0 1rem;
+              }
+            }
+
           }
-        }
 
           &--company {
             margin: 0;
@@ -158,22 +174,39 @@
   }
 
   .main {
-    display: flex;
-    flex-direction: row-reverse;
-    padding: 5rem;
+    text-align: unset;
+    padding: 2.5rem 3rem 0 5rem;
+    display: grid;
+    // grid-template-areas: "img text";
+    grid-template-areas: "text img";
+    grid-gap: 6rem;
+    // padding: 3rem 3rem;
+
+    &__img-wrap {
+      width: 85%;
+      // padding: 4rem;
+      grid-area: img;
+    }
 
     &__background-img {
       content: url(../images/image-hero-desktop.png);
       // flex: 1;
-      width: 50%;
       display: block;
     }
 
+    &__paragraph {
+      margin: 0.6rem 0.7rem 2.3rem 0;
+      color: var(--Medium-Gray);
+    }
+
     &__wrap {
-      padding: 2rem;
-      // display: block;
-      // width: 50%;
-      // flex: 2;
+      padding: 2rem 2rem 0 4rem;
+      margin: 0 auto 0 0;
+      max-width: 60%;
+      // background-color: red;
+      grid-area: text;
+      display: flex;
+      flex-direction: column;
     }
 
     &__content {
@@ -181,9 +214,12 @@
     }
 
     &__icons-container {
-      padding: 1rem;
-      margin: auto 0 1rem 0;
-      // margin-top: auto;
+      // background-color: green;
+      padding: 1rem 1rem 0 1rem;
+      margin: auto 0 0 0;
     }
+    // &__icon-container {
+    //   margin: auto;
+    // }
   }
 }
