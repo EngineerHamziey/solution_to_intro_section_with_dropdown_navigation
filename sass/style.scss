@@ -1,13 +1,7 @@
 
 @import "mobile";
 
-@media (min-width: 800px) {
-  // body {
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   align-items: center;
-  // }
+@media (min-width: 1125px) {
 
   .btn {
     transition: all 0.4s ease-in-out;
@@ -49,7 +43,8 @@
 
             .nav__miniMenu {
               background: var(--Almost-White);
-              background: red;
+              /* offset-x | offset-y | blur-radius | spread-radius | color |*/
+              box-shadow: 0.2rem 0.2rem 1rem 0.1rem rgba(0, 0, 0, 0.2);
               margin: 0.5rem 0 0 -2rem;
               border-radius: 0.5rem;
               padding: 0 1rem 1rem 1rem;
@@ -78,148 +73,73 @@
 
           &--register-btn{
             padding: 0.4rem 2rem;
-            
-            &:hover {
-            // border-color: var(--Almost-Black);
-            }
           }
 
           &:hover {
-            // color: var(--Almost-Black);
             transform: none;
           }
         }
       }
     }
 
-  &__miniMenu {
-    
+    &__miniMenu {
         position: absolute;
-        // transform: translateY(-100%);
-        // top: 100%;
-        // bottom: -100%;
-
-    // // display: none;
-    // margin: 1.5rem 0 0.4rem 2rem;
-    // color: var(--Medium-Gray);
-    // transition: all 0.5s ease-in-out;
-    // transform: translateY(-8rem);
-    // clip-path: polygon(0% 100%, 0% 0, 100% 0, 100% 100%);
-    // -webkit-clip-path: polygon(100% 100%, 100% 0, 100% 0, 100% 100%); 
-
-    a {
-      // color: var(--Medium-Gray);
-    // pointer-events: none;
-
-      &:hover {
-      // color: var(--Almost-Black);
-      }
     }
-
-    &__li {
-      // margin-top: 1rem;
-      
-      img {
-        // display: inline-block;
-        // margin-right: 0.5rem;
-      }
-
-      // &-features {
-
-      //   a {
-      //     margin-left: auto;
-      //   }
-      // }
-      }
-  }
-
-  // .nav--open, when the nav is opened
-  &--open {
-    // display: none;
-
-    .nav__btn--menu {
-      // background: var(--Almost-White);
-      // position: fixed;
-      // top: 1rem;
-      // right: 1rem;
-      // transform: translate(0.1rem, 0.1rem);
-      
-      /* change the hamburger to X */
-      &--hamburger:first-child {
-        // transform: rotate(-100deg) translateY(-63px);
-        // color: red;
-        // opacity: 0;
-      }
-      &--hamburger:nth-child(2) {
-        // transform: rotate(-45deg);
-      }
-      &--hamburger:nth-child(3) {
-        // transform: rotate(45deg) translate(-0.4rem, -0.3rem);
-      }
-    }
-
-    .nav-links {//i.e (nav--open .nav-links)
-      // clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
-      // -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
-      // pointer-events: unset;//returns it to default
-      // // padding: 4rem 0 1.5rem 0;
-      padding: 0;
-      // opacity: 1;
-
-      &__li__btn {
-        // transform: none;
-      }
-    }
-  }
   }
 
   .main {
     text-align: unset;
-    padding: 2.5rem 3rem 0 5rem;
+    padding: 2.5rem 8rem 0 5rem;
     display: grid;
-    // grid-template-areas: "img text";
-    grid-template-areas: "text img";
-    grid-gap: 6rem;
-    // padding: 3rem 3rem;
+    grid-template-columns: repeat(2, auto);
+
+    &__wrap {
+      margin: 0 auto;//instead of grid-gap
+      padding-right: 3rem;//instead of grid-gap
+      display: flex;
+    }
 
     &__img-wrap {
-      width: 85%;
-      // padding: 4rem;
-      grid-area: img;
+      margin: 0 auto;//instead of grid-gap
+      padding-left: 3rem;//instead of grid-gap
+      max-width: 30rem;
+      height: 100%;
     }
 
     &__background-img {
       content: url(../images/image-hero-desktop.png);
-      // flex: 1;
-      display: block;
+      height: 100%;
+    }
+
+    &__heading1 {
+      font-size: 4rem;
     }
 
     &__paragraph {
       margin: 0.6rem 0.7rem 2.3rem 0;
+      margin: 0.6rem 0 2.3rem 0;
       color: var(--Medium-Gray);
     }
 
     &__wrap {
-      padding: 2rem 2rem 0 4rem;
-      margin: 0 auto 0 0;
-      max-width: 60%;
-      // background-color: red;
-      grid-area: text;
+      padding: 2rem 0rem 0 4rem;
+    }
+
+    &__text-icon-wrap {
+      // turn this to flex so that margin auto can work on the icons
       display: flex;
       flex-direction: column;
+      height: 100%;
+      width: 30rem;
     }
 
     &__content {
-      padding: 0;
+      padding: 0 2rem 0 0;
     }
 
     &__icons-container {
-      // background-color: green;
-      padding: 1rem 1rem 0 1rem;
+      padding: 2rem 1rem 0 1rem;
       margin: auto 0 0 0;
     }
-    // &__icon-container {
-    //   margin: auto;
-    // }
   }
 }

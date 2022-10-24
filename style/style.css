@@ -315,7 +315,7 @@ img {
 @keyframes fill-color {
   to {
     fill: var(--Almost-Black); } }
-@media (min-width: 800px) {
+@media (min-width: 1125px) {
   .btn {
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out; }
@@ -343,7 +343,9 @@ img {
       margin: 0 1rem 0 auto; }
     .nav-links__li--miniMenu--open .nav__miniMenu {
       background: var(--Almost-White);
-      background: red;
+      /* offset-x | offset-y | blur-radius | spread-radius | color |*/
+      -webkit-box-shadow: 0.2rem 0.2rem 1rem 0.1rem rgba(0, 0, 0, 0.2);
+              box-shadow: 0.2rem 0.2rem 1rem 0.1rem rgba(0, 0, 0, 0.2);
       margin: 0.5rem 0 0 -2rem;
       border-radius: 0.5rem;
       padding: 0 1rem 1rem 1rem; }
@@ -365,40 +367,46 @@ img {
                 transform: none; }
   .nav__miniMenu {
     position: absolute; }
-  .nav--open .nav__btn--menu {
-    /* change the hamburger to X */ }
-  .nav--open .nav-links {
-    padding: 0; }
 
   .main {
     text-align: unset;
-    padding: 2.5rem 3rem 0 5rem;
+    padding: 2.5rem 8rem 0 5rem;
     display: grid;
-    grid-template-areas: "text img";
-    grid-gap: 6rem; }
+    grid-template-columns: repeat(2, auto); }
+    .main__wrap {
+      margin: 0 auto;
+      padding-right: 3rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
     .main__img-wrap {
-      width: 85%;
-      grid-area: img; }
+      margin: 0 auto;
+      padding-left: 3rem;
+      max-width: 30rem;
+      height: 100%; }
     .main__background-img {
       content: url(../images/image-hero-desktop.png);
-      display: block; }
+      height: 100%; }
+    .main__heading1 {
+      font-size: 4rem; }
     .main__paragraph {
       margin: 0.6rem 0.7rem 2.3rem 0;
+      margin: 0.6rem 0 2.3rem 0;
       color: var(--Medium-Gray); }
     .main__wrap {
-      padding: 2rem 2rem 0 4rem;
-      margin: 0 auto 0 0;
-      max-width: 60%;
-      grid-area: text;
+      padding: 2rem 0rem 0 4rem; }
+    .main__text-icon-wrap {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
           -ms-flex-direction: column;
-              flex-direction: column; }
+              flex-direction: column;
+      height: 100%;
+      width: 30rem; }
     .main__content {
-      padding: 0; }
+      padding: 0 2rem 0 0; }
     .main__icons-container {
-      padding: 1rem 1rem 0 1rem;
+      padding: 2rem 1rem 0 1rem;
       margin: auto 0 0 0; } }
