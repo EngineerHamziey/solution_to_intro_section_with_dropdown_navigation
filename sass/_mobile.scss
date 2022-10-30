@@ -10,24 +10,20 @@
 }
 
 $my-parag-size: 1.125rem; /*i.e 18px*/
-// $max-desktop-width: 90rem; /*i.e 1440px*/
-  
-:root {
-  --Almost-White: hsl(0, 0%, 98%);
-  --Medium-Gray: hsl(0, 0%, 41%);
-  --Almost-Black: hsl(0, 0%, 8%);
-}
+$Almost-White: hsl(0, 0%, 98%);
+$Medium-Gray: hsl(0, 0%, 41%);
+$Almost-Black: hsl(0, 0%, 8%);
 
 @mixin some-common-btn-styles {
-  background: var(--Almost-White);
-  color: var(--Almost-Black);
+  background: transparent;
+  color: $Almost-Black;
 }
   
 body {
   font-family: 'Epilogue', sans-serif;
   line-height: 1.5;
-  background: var(--Almost-White);
-  color: var(--Almost-Black);
+  background: $Almost-White;
+  color: $Almost-Black;
 }
 
 // globals / utillities
@@ -60,25 +56,19 @@ a {
   }
   
   &:hover {
-    border-color:  var(--Almost-Black);
-    color: var(--Almost-Black);
+    border-color:  $Almost-Black;
+    color: $Almost-Black;
   }
   
   &:focus-visible {
-    outline: dotted 0.3rem var(--Almost-Black);
-    color: var(--Almost-Black);
+    outline: dotted 0.3rem $Almost-Black;
+    color: $Almost-Black;
   }
 }
 
 img {
   pointer-events: none;
 }
-
-// nav, main, footer {
-//   max-width: $max-desktop-width;
-//   // display: none;
-// }
-// globals / utillities ends
 
 .nav {
   display: flex;
@@ -97,7 +87,7 @@ img {
   }
 
   &__path {
-    stroke: var(--Almost-Black);
+    stroke: $Almost-Black;
     animation-name: svg-animation;
     animation-fill-mode: forwards;
     animation-timing-function: ease;
@@ -109,21 +99,19 @@ img {
     &--menu {      
       display: block;
       margin: auto 0 auto auto;
-      /* recommended by wcag is 44 x 44px equivalent to 2.75rem*/
+      /* PREVIOUSLY recommended by wcag is 44 x 44px equivalent to 2.75rem*/
       width: 2.75rem;
       height: 2.75rem;
       background-color: transparent;
       border-radius: 0.2rem;
       border: none;
       z-index: 2;
-      // transition: all 0.5s ease;
-      // transition-property: ;
 
     &--hamburger {
       display: block;
       width: 2rem;
       height: 0.15rem;
-      background: var(--Almost-Black);
+      background: $Almost-Black;
       border-radius: 0.1rem;
       transition: all 0.5s ease-in-out;
       pointer-events: none;
@@ -146,40 +134,31 @@ img {
       height: 2.75rem;
       font-size: 1.4rem;
       transition: all 0.5s ease;
-      // opacity 0 makes chrome vox call it "button" without saying the content of the button tag which is "skip to main content"
-      // opacity: 0;
       transform: translate(2rem,-10rem);
 
       &:focus-visible {
         transform: translate(0, 0);
-        color: var(--Almost-Black);
-        outline: dotted 0.3rem var(--Almost-Black);
+        color: $Almost-Black;
+        outline: dotted 0.3rem $Almost-Black;
       }
     }
   }
 
   &-links {
-    // display: none; //links
     list-style: none;
-    /* padding-top: 4rem; */
-    /* height: max(40rem, 100vh); */
     min-height: 100vh;
     min-width: 60%;
-    background: var(--Almost-White);
+    background-color: $Almost-White;
     position: fixed;
-    // position: absolute;
     right: 0;
     top:0;
     transition: all 0.6s ease;
-    // background: red; 
     clip-path: polygon(100% 100%, 100% 0, 100% 0, 100% 100%);
     -webkit-clip-path: polygon(100% 100%, 100% 0, 100% 0, 100% 100%);
     pointer-events: none;
     opacity: 0;
 
     &__li {
-      // dk 
-      // display: none;
 
       &--miniMenu {
         
@@ -190,11 +169,8 @@ img {
           }
 
           .nav__miniMenu {
-          // clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
-          // -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
           transform: none;
           margin: 1.5rem 0 0.4rem 2rem;
-          // background: var(--Almost-White);
           opacity: 1;
           height: unset;
           pointer-events: unset;
@@ -202,26 +178,22 @@ img {
        }
 
         &--company {
-          // display: none;
           margin-top: 1rem;
         }
       }
 
       &__btn {
         border: none;
-        background: var(--Almost-white);
+        background-color: transparent;
         transition: all 1s ease 0.1s; 
-        // color: var(--Almost-Black);
         transform: translate(60vw) rotate(-100deg) scale(4);
-        // transform: scale(1.4) rotate(100deg) translate(0.3rem, 0.2rem);
 
         // check this later
         display: inline-block;
-        color: var(--Medium-Gray);
-        border-color: var(--Medium-Gray);
+        color: $Medium-Gray;
+        border-color: $Medium-Gray;
         margin: 0.2em auto auto 0.3rem;
         padding: 0.5rem 1rem;
-        // display: none;
 
         &--register-btn,
         &--logIn-btn {
@@ -230,13 +202,13 @@ img {
           text-align: center;
           padding: 0.5rem 1rem;
           border-radius: 1rem;
-          border: 0.14rem solid var(--Medium-Gray);
+          border: 0.14rem solid $Medium-Gray;
           /* 2rems already subtracted from the width */
           margin: 0 1rem;
 
           &:hover {
-          @include some-common-btn-styles();
-            // to prevent it from scalling up
+            //including the styles...
+            @include some-common-btn-styles();
             transform: scale(1);
           }
         }
@@ -257,17 +229,12 @@ img {
             border-color: transparent;
           }
           &:focus-visible {
-            border-color: var(--Medium-Gray);
+            border-color: $Medium-Gray;
           }
         }
 
         &--register-btn:hover {
-          border-color: var(--Almost-Black);
-        }
-
-        &:hover {
-          color: var(--Almost-Black);
-          transform: scale(1.2);
+          border-color: $Almost-Black;
         }
       }
     }
@@ -275,24 +242,18 @@ img {
 
   &__miniMenu {
     list-style:none;
-    color: var(--Medium-Gray);
+    color: $Medium-Gray;
     transition: all 0.5s ease-in-out;
-    // clip-path: polygon(0% 100%, 0% 0, 100% 0, 100% 100%);
-    // -webkit-clip-path: polygon(100% 100%, 100% 0, 100% 0, 100% 100%); 
-    // ********************************************
     height: 0rem;
-    // transform: translate(0,-4rem);
-    // display: none;
-    // margin: 1.5rem 0 0.4rem 2rem;
     margin: 0;
     opacity: 0;
     pointer-events: none;
 
     a {
-      color: var(--Medium-Gray);
+      color: $Medium-Gray;
 
       &:hover {
-      color: var(--Almost-Black);}
+      color: $Almost-Black;}
     }
 
     &__li {
@@ -302,22 +263,14 @@ img {
         display: inline-block;
         margin-right: 0.5rem;
       }
-
-      // &-features {
-
-      //   a {
-      //     margin-left: auto;
-      //   }
-      // }
-      }
+    }
   }
 
   // .nav--open, when the nav is opened
   &--open {
-    // display: none;
 
     .nav__btn--menu {
-      background: var(--Almost-White);
+      background-color: transparent;
       position: fixed;
       top: 1rem;
       right: 1rem;
@@ -340,8 +293,7 @@ img {
     .nav-links {//i.e (nav--open .nav-links)
       clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
       -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
-      pointer-events: unset;//returns it to default
-      // padding: 4rem 0 1.5rem 0;
+      pointer-events: unset;
       padding: 4rem 0 0 0;
       opacity: 1;
 
@@ -358,33 +310,27 @@ img {
   padding: 1rem 0.5rem;
   text-align: center;
   
-  &__background-img {
+  &__avatar {
     display: inline-block;
     width: 100%;
   }
 
-  // &__content {
-  //   dk;
-  // }
-
   &__heading1 {
     font-size: 2.5rem;
-    // font-size: 4rem;
     margin-top: 1.6rem;
   }
 
   &__paragraph {
     margin: 0.6rem 0.7rem 2.3rem 0.7rem;
-    color: var(--Medium-Gray);
+    color: $Medium-Gray;
   }
 
   &__btn--learn-more {
-    // display: none;
-    color: var(--Almost-White);
-    background: var(--Almost-Black);
+    color: $Almost-White;
+    background: $Almost-Black;
     padding: 0.85rem 1.2rem;
     border-radius: 1rem;
-    border: 0.1rem solid var(--Almost-Black);
+    border: 0.1rem solid $Almost-Black;
 
     &:focus-visible {
       border-radius: 1rem;
@@ -427,7 +373,7 @@ img {
 
 .attribution {
   text-align: center;
-  margin: 0 1rem 0.7rem 0;
+  margin: 0 1rem 2rem 0;
   padding: 0 0.5rem;
 
   &__p {
@@ -451,36 +397,9 @@ img {
 @keyframes fill-color {
       
   to {
-    fill: var(--Almost-Black);
+    fill: $Almost-Black;
   }
 }
 
-
-
-.noScript {
-
-  &__p {
-    // background-color: var(--Medium-Gray);
-    // display: none;
-    // color: --Almost-Black;
-    // font-size: 1rem;
-    // text-align: center;
-    // padding: 0.5rem 2rem;
-    // position: absolute;
-    // top: 3rem;
-    // left: 0;
-  }
-
-  // mobile noScript__open
-  &__open {
-
-  }
-
-  // desktop noScript__open
-  @media (min-width: 600px) {
-
-    &__open {
-
-    }
-  }
-}
+// to reduce motion and animation to avoid seizures...accessibility
+// @media (prefe)

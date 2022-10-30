@@ -9,6 +9,47 @@
 
   .nav {
 
+    //custom cursor
+    &__cursor {
+      position: absolute;
+      // background-color: $Almost-Black;
+      // opacity: 0.4;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      // to ensure the default mouse is at the center of this one
+      transform: translate(-50%, -50%);
+      pointer-events: none;// to make it click through
+      //to ensure that the mouse remains at the center after the transform
+      // transform-origin: top & bottom left & right;
+      transform-origin: 100% 100%;
+      transition: all 0.3s ease;
+      transition-property: background, transform;
+      // backdrop-filter: blur(1px);
+      backdrop-filter: grayscale(1);
+      display: none;
+
+      &--over-nav-links {
+        z-index: -1;
+        display: block;
+        opacity: 1;
+        transform: scale(2.3);
+        border: none;
+        background-color: $Almost-Black;
+      }
+
+      &--over-avatar {
+        //put it over the image to make backdrop work
+        z-index: 2;
+        display: block;
+        opacity: 1;
+        // background-color: $Almost-Black;
+        transform: scale(2.3);
+        border: solid 0.03rem $Almost-Black;
+        // border: none;
+      }
+    }
+
     // hamburger
     &__btn {
 
@@ -17,7 +58,16 @@
       }
     }
 
+    &--open {
+      
+    //to remove the added padding when screen size changes
+    .nav-links{
+      padding: unset;
+    }
+    }
+
     &-links {
+      background-color: transparent;
       display: flex; 
       align-items: center;
       min-height: unset;
@@ -42,7 +92,7 @@
           &--open {
 
             .nav__miniMenu {
-              background: var(--Almost-White);
+              background: $Almost-White;
               /* offset-x | offset-y | blur-radius | spread-radius | color |*/
               box-shadow: 0.2rem 0.2rem 1rem 0.1rem rgba(0, 0, 0, 0.2);
               margin: 0.5rem 0 0 -2rem;
@@ -76,6 +126,7 @@
           }
 
           &:hover {
+            color: $Almost-White;
             transform: none;
           }
         }
@@ -89,7 +140,7 @@
 
   .main {
     text-align: unset;
-    padding: 2.5rem 8rem 0 5rem;
+    padding: 2.5rem 8rem 0 0;
     display: grid;
     grid-template-columns: repeat(2, auto);
 
@@ -106,7 +157,7 @@
       height: 100%;
     }
 
-    &__background-img {
+    &__avatar {
       content: url(../images/image-hero-desktop.png);
       height: 100%;
     }
@@ -118,7 +169,7 @@
     &__paragraph {
       margin: 0.6rem 0.7rem 2.3rem 0;
       margin: 0.6rem 0 2.3rem 0;
-      color: var(--Medium-Gray);
+      color: $Medium-Gray;
     }
 
     &__wrap {

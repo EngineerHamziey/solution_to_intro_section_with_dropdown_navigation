@@ -13,7 +13,8 @@
 
 <body>
   <!-- so that site can look good on devices without javaScript enabled, I shall have a class name noScript__open, that will be applied to some element, then javaScript will be used to remove it so that site be behave normal for user that enabled javascript -->
-  <nav class="nav">  <!-- <nav class="nav"> -->
+  <nav class="nav">
+    <div aria-hidden="true" class="nav__cursor"></div>
     <a href="#main" class="btn nav__btn nav__btn--skip-to-main-content">
       Skip To Main Content
     </a>
@@ -55,9 +56,10 @@
       Menu
     </button>
     <!-- I'll change aria-expanded to using javaScript, it's true because of those who disables JS on their browsers, the menu will be collapsed by default on their browser -->
-    <ul class="nav-links ">
+    <ul class="nav-links">
       <li 
         class="
+          nav-links__li
           nav-links__li nav-links__li--miniMenu 
           nav-links__li--miniMenu--features
         ">
@@ -158,13 +160,13 @@
       <a class="btn nav-links__li__btn nav-links__li__btn--register-btn" href="#">Register</a>
     </li>
     </ul>
-  </nav>
   
   <noscript>
     <p class="noScript__p">
       Please enable javaScript in your browser settings so that the page will be fully functional.
     </p>
   </noscript>
+  </nav>
 
   <main id="main" class="main">
     
@@ -198,7 +200,9 @@
       
     </div>
     <div class="main__img-wrap">
-      <img class="main__background-img" src="./images/image-hero-mobile.png" alt="" role="presentation">
+      <div class="mouse-over-avatar-wrap">
+        <img class="main__avatar" src="./images/image-hero-mobile.png" alt="" role="presentation">
+      </div>
     </div>
   </main>
   <footer class="attribution">

@@ -1,26 +1,29 @@
 - what do you think of my code? is it clean? if no what do you recommend?
 
-- I put some effort trying to make sure no details is left out.
-do you notice any details left out?(like color, font, etc).
+- do you notice any details left out and How do think I can fix it?
 
 - Is there anything I did that you have a better way of doing? 
 
-- in what aspect of my code do you think I should Improve on
+- in what aspect of my code do you think I should Improve on?
 
 - Is it inaccessible in anyway or Is there anything left out?
 
 - I assume this site of mine conform to WCAG 2.2, Do you think there something left out? what is that?
 
-- do you think it's a good idea to always use ID to select element from the javaScrip(I mean for DOM manipulation)
-
--- I ensure that all clickables are atleast 44px x 44px(to help people with dexterity needs and others), some might appear like they are not up to that but there is actually a hidden/transparent padding around it that make it up to 44px x 44px(like in my hamburger button).   do you think this voids the accessibility of the button?
+- do you think it's a good idea to always use ID to select element from the javaScrip without a special reason(I mean for DOM manipulation)
 
 - I hope it's completely responsive on mobile your phone.
 
-- I have seen alot of people animate their middle hamburger, so I tried mine unique, do you like it  
+- please do you know why the skip to main content isn't showing on firefox browser?
+
+- I added some visually hidden text to ensure screen reader users(navigating from links to links) have the best understanding of what's going on.
 
 
 how I ensure it's accessible:(Read how to write accessibility report for a website)
 - I added the skip to main content button.
+
 - I ensure that all buttons/target size are about 44px x 44px, some might appear like they are not up to that but there is actually a hidden/transparent padding around it that make it up to 44px x 44px.
-- By adding some visually hidden text to ensure screen reader users(navigating from links to links) have the best possible experience
+
+- I added some visually hidden text to ensure screen reader users(navigating from links to links) have the best understanding of what's going on.
+
+- I added 
