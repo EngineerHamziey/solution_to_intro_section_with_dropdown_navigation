@@ -17,7 +17,7 @@
 ## Welcome to my solution Readme :relaxed:
 
 This is a solution to the [Intro section with dropdown navigation challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/intro-section-with-dropdown-navigation-ryaPetHE5).
- [Frontend mentor](https://www.frontendmentor.io) *** is a site that provide us with free UI/UX designs to practice our coding skills. ***
+ [Frontend mentor](https://www.frontendmentor.io) ***is a site that provide us with free UI/UX designs to practice our coding skills.***
  [Frontend mentor challenges](https://www.frontendmentor.io/challenges) help you improve your coding skills by building realistic projects. 
 
 ### The challenge
