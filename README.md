@@ -125,7 +125,6 @@ An example is shown below:
 
 - [Code URL on GitHub](https://github.com/EngineerHamziey/solution_to_intro_section_with_dropdown_navigation)
 - [Live Site URL](https://engineerhamziey-intro-with-dropdown.netlify.app/)
-- [Solution Page On FrontendMentor.io](https://www.frontendmentor.io/solutions/intro-section-with-dropdown-navigation-challenge-using-html-5-semantic-QNQVmt6Ulk)
 
 
 ## Acknowledgments
