@@ -1,5 +1,7 @@
 # Solution To Intro section with dropdown navigation By Engineer Hamziey
 
+https://user-images.githubusercontent.com/94625541/229121197-5ba9146d-6db5-45c7-ab8a-898a1c49cebe.mp4
+
 ## Table of contents
 
 - [What is FrontEnd Mentor](#what-is-frontend-mentor)
@@ -124,11 +126,7 @@ An example is shown below:
 ### Links
 
 - [Code URL on GitHub](https://github.com/EngineerHamziey/solution_to_intro_section_with_dropdown_navigation)
-- [Live Site URL](https://engineerhamziey-i
-
-https://user-images.githubusercontent.com/94625541/229121197-5ba9146d-6db5-45c7-ab8a-898a1c49cebe.mp4
-
-ntro-with-dropdown.netlify.app/)
+- [Live Site URL](https://engineerhamziey-intro-with-dropdown.netlify.app/)
 
 
 ## Acknowledgments
